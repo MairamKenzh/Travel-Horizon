@@ -38,7 +38,7 @@ To choose a different first password, start the server with `ADMIN_PASSWORD=your
 
 | Part | File |
 |---|---|
-| Server, REST API, login, database | `server.js` (Express + built-in `node:sqlite`) |
+| Server, REST API, login, database | `server.js` (Express + SQLite via `@libsql/client`; local file or Turso) |
 | Admin panel | `admin.html`, `js/admin.js`, `css/admin.css` |
 | Public site | `*.html`, `css/style.css`, `js/main.js` |
 | Translations of the fixed site text | `js/i18n/*.js` |
@@ -64,21 +64,31 @@ To start over with the original 17 places, stop the server and delete `data/trav
 | Change your password | Admin panel → **Users → Change my password** |
 | Give someone access | Admin panel → **Users → Add a person** |
 | Choose the first admin password on a new server | Set the variable `ADMIN_PASSWORD` before the first start |
-| Forgot the password (online, Railway) | Railway → service → **Variables** → add `ADMIN_RESET_PASSWORD` = new password (8+ characters). Railway restarts the site; log in, then **delete the variable**. |
+| Forgot the password (online site) | Render → service → **Environment** → add `ADMIN_RESET_PASSWORD` = new password (8+ characters) → **Save, rebuild and deploy**. Log in, then **delete the variable**. |
 | Forgot the password (on your computer) | `npm run reset-password -- admin NewPassword123` |
 
 Resetting a password never deletes places or photos.
 
-## Putting the site online (Railway)
+## Putting the site online (Render + Turso, free)
+
+The website runs on **Render** (free web service). The data — places, admin accounts, logins and
+uploaded photos — is stored in a free **Turso** online database, because Render's free plan erases
+its disk on every restart.
 
 1. Upload the project to GitHub (VS Code: **Source Control → Publish Branch**).
-2. On [railway.com](https://railway.com), log in with GitHub → **New Project → Deploy from GitHub repo** → choose the repository.
-3. Add a **Volume** to the service with mount path `/data` — this keeps the database and uploaded photos.
-4. In **Variables**, add `ADMIN_PASSWORD` with a strong password.
-5. In **Settings → Networking**, click **Generate Domain** to get the public address.
+2. **Turso:** sign up at [turso.tech](https://turso.tech) with GitHub → create a database →
+   copy its **URL** (`libsql://….turso.io`) and create a **token**.
+3. **Render:** sign up at [render.com](https://render.com) with GitHub → **New → Blueprint** →
+   choose the repository. Render reads `render.yaml` and asks for:
+   - `TURSO_DATABASE_URL` — the Turso URL
+   - `TURSO_AUTH_TOKEN` — the Turso token
+   - `ADMIN_PASSWORD` — the admin password for the online site
+4. Click **Deploy**. The site appears at `https://travel-horizon-xxxx.onrender.com`.
 
-After that, every push to GitHub updates the website automatically. Data is stored on the volume
-(`RAILWAY_VOLUME_MOUNT_PATH`), or in `DATA_DIR` if set, otherwise in `data/`.
+Every push to GitHub updates the website automatically. On the free plan the site sleeps after
+15 minutes without visitors and takes up to a minute to wake up.
+
+Without the Turso variables the server uses the local file `data/travel.db` (or `DATA_DIR`).
 
 Opening the HTML files directly (without `npm start`) still works, but then the Destinations page
 shows the places built into `destinations.html` and the admin panel is unavailable.
