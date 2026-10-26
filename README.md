@@ -4,7 +4,7 @@ A travel guide to Kyrgyzstan for foreign tourists, in 6 languages, with an admin
 
 ## Running the site
 
-Requires [Node.js](https://nodejs.org) 22.13 or newer.
+Requires [Node.js](https://nodejs.org) 24.
 
 ```bash
 npm install     # first time only
