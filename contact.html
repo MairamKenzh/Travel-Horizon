@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title.contact">Contact — Travel Horizon</title>
+  <meta name="description" content="Request a free personalised itinerary for your trip to Kyrgyzstan from Travel Horizon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress"></div>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <svg class="logo__mark" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#d7262e"/><path d="M10 22a8 8 0 0 1 16 0z" fill="#f5b301"/><path d="M18 8v4M9.5 12.5l2.6 2.6M26.5 12.5l-2.6 2.6" stroke="#f5b301" stroke-width="2" stroke-linecap="round"/><path d="M6 22h24M10 26.5h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Travel Horizon
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="destinations.html" data-i18n="nav.destinations">Destinations</a></li>
+          <li><a href="history.html" class="nav__history" data-i18n="nav.history">History</a></li>
+          <li><a href="plan.html" data-i18n="nav.plan">Plan Your Trip</a></li>
+          <li><a href="culture.html" data-i18n="nav.culture">Culture &amp; Food</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang"></div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" style="background-image:url('images/issyk-kul.jpg')">
+      <div class="container page-hero__content">
+        <span class="eyebrow" data-i18n="contact.hero.eyebrow">Get in touch</span>
+        <h1 data-i18n="contact.hero.title">Plan your journey with us</h1>
+        <p data-i18n="contact.hero.lead">Fill in the form and receive a free, personalised itinerary from our local team.</p>
+      </div>
+      <span class="page-hero__credit" data-credit="issyk-kul"></span>
+    </section>
+
+    <section class="section">
+      <div class="container split" style="align-items:start">
+        <form class="form reveal" id="trip-form" novalidate>
+          <h2 style="font-size:1.6rem" data-i18n="form.title">Trip request</h2>
+          <div class="form-row">
+            <div class="field">
+              <label for="name" data-i18n="form.name">Full name *</label>
+              <input type="text" id="name" name="name" autocomplete="name">
+              <span class="error" data-i18n="form.nameErr">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="email" data-i18n="form.email">Email *</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+              <span class="error" data-i18n="form.emailErr">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="country" data-i18n="form.country">Your country *</label>
+              <select id="country" name="country">
+                <option value="" data-i18n="form.select">Select…</option>
+                <option value="us" data-i18n="country.us">United States</option>
+                <option value="gb" data-i18n="country.gb">United Kingdom</option>
+                <option value="de" data-i18n="country.de">Germany</option>
+                <option value="fr" data-i18n="country.fr">France</option>
+                <option value="it" data-i18n="country.it">Italy</option>
+                <option value="es" data-i18n="country.es">Spain</option>
+                <option value="tr" data-i18n="country.tr">Turkey</option>
+                <option value="kr" data-i18n="country.kr">South Korea</option>
+                <option value="jp" data-i18n="country.jp">Japan</option>
+                <option value="cn" data-i18n="country.cn">China</option>
+                <option value="in" data-i18n="country.in">India</option>
+                <option value="kz" data-i18n="country.kz">Kazakhstan</option>
+                <option value="ru" data-i18n="country.ru">Russia</option>
+                <option value="other" data-i18n="country.other">Other</option>
+              </select>
+              <span class="error" data-i18n="form.countryErr">Please choose your country.</span>
+            </div>
+            <div class="field">
+              <label for="arrival" data-i18n="form.arrival">Arrival date *</label>
+              <input type="date" id="arrival" name="arrival">
+              <span class="error" data-i18n="form.arrivalErr">Please choose a future date.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="days" data-i18n="form.days">Trip length (days) *</label>
+              <input type="number" id="days" name="days" min="1" max="60" value="7">
+              <span class="error" data-i18n="form.daysErr">Between 1 and 60 days (visa-free limit).</span>
+            </div>
+            <div class="field">
+              <label for="travelers" data-i18n="form.travelers">Travellers *</label>
+              <input type="number" id="travelers" name="travelers" min="1" max="30" value="2">
+              <span class="error" data-i18n="form.travelersErr">Between 1 and 30 people.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label data-i18n="form.interests">Interests</label>
+            <div class="checks">
+              <label><input type="checkbox" name="interests" value="trekking"> <span data-i18n="int.trek">Trekking</span></label>
+              <label><input type="checkbox" name="interests" value="horse"> <span data-i18n="int.horse">Horse riding</span></label>
+              <label><input type="checkbox" name="interests" value="culture"> <span data-i18n="int.culture">Culture</span></label>
+              <label><input type="checkbox" name="interests" value="history"> <span data-i18n="int.history">Silk Road history</span></label>
+              <label><input type="checkbox" name="interests" value="lakes"> <span data-i18n="int.lakes">Lakes &amp; beaches</span></label>
+              <label><input type="checkbox" name="interests" value="ski"> <span data-i18n="int.ski">Skiing</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="budget" data-i18n="form.budget">Budget per person</label>
+            <select id="budget" name="budget">
+              <option value="low" data-i18n="budget.1">Backpacker (under $40/day)</option>
+              <option value="mid" data-i18n="budget.2" selected>Comfort ($40–100/day)</option>
+              <option value="high" data-i18n="budget.3">Premium ($100+/day)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message" data-i18n="form.message">Anything else?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Special requests, dietary needs, places you dream of…" data-i18n-placeholder="form.messagePh"></textarea>
+          </div>
+          <button type="submit" class="btn btn--dark" data-i18n="form.submit">Send request</button>
+          <div class="success" role="status"></div>
+        </form>
+
+        <aside class="contact-cards">
+          <div class="contact-card reveal">
+            <h3 data-i18n="info.office">📍 Office</h3>
+            <p data-i18n="info.address">Chuy Avenue, Bishkek, Kyrgyz Republic</p>
+          </div>
+          <div class="contact-card reveal">
+            <h3 data-i18n="info.email">✉️ Email</h3>
+            <p>hello@travelhorizon.example</p>
+          </div>
+          <div class="contact-card reveal">
+            <h3 data-i18n="info.hours">🕘 Working hours</h3>
+            <p data-i18n="info.hoursVal">Mon–Sat, 9:00–18:00 (UTC +6)</p>
+          </div>
+          <div class="contact-card reveal">
+            <h3 data-i18n="info.emergency">🚨 Emergency numbers</h3>
+            <div class="emergency">
+              <div><strong>112</strong><span data-i18n="em.unified">Unified</span></div>
+              <div><strong>102</strong><span data-i18n="em.police">Police</span></div>
+              <div><strong>103</strong><span data-i18n="em.ambulance">Ambulance</span></div>
+              <div><strong>101</strong><span data-i18n="em.fire">Fire</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo__mark" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#d7262e"/><path d="M10 22a8 8 0 0 1 16 0z" fill="#f5b301"/><path d="M18 8v4M9.5 12.5l2.6 2.6M26.5 12.5l-2.6 2.6" stroke="#f5b301" stroke-width="2" stroke-linecap="round"/><path d="M6 22h24M10 26.5h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          Travel Horizon
+        </a>
+        <p data-i18n="footer.about">An independent travel guide for international visitors to the Kyrgyz Republic.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <ul>
+          <li><a href="destinations.html" data-i18n="nav.destinations">Destinations</a></li>
+          <li><a href="history.html" data-i18n="nav.history">History</a></li>
+          <li><a href="culture.html" data-i18n="nav.culture">Culture &amp; Food</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.plan">Plan</h4>
+        <ul>
+          <li><a href="plan.html#visa" data-i18n="footer.visa">Visa &amp; entry</a></li>
+          <li><a href="plan.html#transport" data-i18n="footer.transport">Transport</a></li>
+          <li><a href="plan.html#phrases" data-i18n="footer.phrases">Phrasebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.help">Help</h4>
+        <ul>
+          <li><a href="contact.html" data-i18n="footer.contact">Contact us</a></li>
+          <li><a href="history.html#sources" data-i18n="footer.sources">Sources &amp; photo credits</a></li>
+          <li><a href="admin.html" data-i18n="footer.admin">🔒 Admin login</a></li>
+          <li><span data-i18n="footer.emergency">Emergency:</span> <strong>112</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">© <span class="year"></span> Travel Horizon · <span data-i18n="footer.project">University web project</span></div>
+  </footer>
+
+  <button class="to-top" aria-label="Back to top">↑</button>
+  <script src="js/i18n/ru.js"></script>
+  <script src="js/i18n/es.js"></script>
+  <script src="js/i18n/it.js"></script>
+  <script src="js/i18n/ky.js"></script>
+  <script src="js/i18n/fr.js"></script>
+  <script src="js/credits.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

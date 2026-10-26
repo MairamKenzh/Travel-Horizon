@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title.index">Travel Horizon — Kyrgyzstan Travel Guide</title>
+  <meta name="description" content="Travel Horizon: plan your trip to Kyrgyzstan with top destinations, history, visas, transport, culture, food and travel tips for international visitors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress"></div>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <svg class="logo__mark" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#d7262e"/><path d="M10 22a8 8 0 0 1 16 0z" fill="#f5b301"/><path d="M18 8v4M9.5 12.5l2.6 2.6M26.5 12.5l-2.6 2.6" stroke="#f5b301" stroke-width="2" stroke-linecap="round"/><path d="M6 22h24M10 26.5h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Travel Horizon
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="destinations.html" data-i18n="nav.destinations">Destinations</a></li>
+          <li><a href="history.html" class="nav__history" data-i18n="nav.history">History</a></li>
+          <li><a href="plan.html" data-i18n="nav.plan">Plan Your Trip</a></li>
+          <li><a href="culture.html" data-i18n="nav.culture">Culture &amp; Food</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang"></div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero slideshow -->
+    <section class="hero">
+      <div class="hero__slides">
+        <div class="hero__slide active" style="background-image:url('images/song-kul.jpg')"><span class="hero__slide-caption" data-i18n="dest.songkul.title">Song-Kul Lake</span></div>
+        <div class="hero__slide" style="background-image:url('images/ala-kul.jpg')"><span class="hero__slide-caption" data-i18n="dest.alakul.title">Ala-Kul Lake</span></div>
+        <div class="hero__slide" style="background-image:url('images/jeti-oguz.jpg')"><span class="hero__slide-caption" data-i18n="dest.jetioguz.title">Jeti-Oguz</span></div>
+        <div class="hero__slide" style="background-image:url('images/kel-suu.jpg')"><span class="hero__slide-caption" data-i18n="dest.kelsuu.title">Kel-Suu Lake</span></div>
+        <div class="hero__slide" style="background-image:url('images/burana.jpg')"><span class="hero__slide-caption" data-i18n="dest.burana.title">Burana Tower</span></div>
+      </div>
+      <div class="container hero__content">
+        <span class="eyebrow" data-i18n="home.eyebrow">Travel Horizon · Welcome to Kyrgyzstan</span>
+        <h1 data-i18n="home.title">Discover the Land of Celestial Mountains</h1>
+        <p data-i18n="home.lead">Turquoise alpine lakes, nomadic yurt camps, the Silk Road and the warm hospitality of the Kyrgyz people. Over 90% of Kyrgyzstan is covered by mountains, and they are waiting for you.</p>
+        <div class="hero__actions">
+          <a href="destinations.html" class="btn btn--primary" data-i18n="home.btnExplore">Explore destinations</a>
+          <a href="history.html" class="btn btn--ghost" data-i18n="home.btnHistory">Discover the history</a>
+        </div>
+      </div>
+      <div class="container hero__meta">
+        <span class="hero__caption"></span>
+        <div class="hero__dots"></div>
+      </div>
+      <span class="scroll-hint" aria-hidden="true"></span>
+    </section>
+
+    <!-- Animated stats -->
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><span class="stat__num" data-count="7439" data-suffix=" m">7,439 m</span><span class="stat__label" data-i18n="stat.peak">Highest peak, Jengish Chokusu</span></div>
+        <div class="stat"><span class="stat__num" data-count="60">60</span><span class="stat__label" data-i18n="stat.visa">Visa-free days for 60+ countries</span></div>
+        <div class="stat"><span class="stat__num" data-count="3">3</span><span class="stat__label" data-i18n="stat.unesco">UNESCO World Heritage Sites</span></div>
+        <div class="stat"><span class="stat__num" data-count="1991" data-plain>1991</span><span class="stat__label" data-i18n="stat.indep">Year of independence</span></div>
+      </div>
+    </div>
+
+    <!-- Featured places (bento) -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="home.top.eyebrow">Top destinations</span>
+          <h2 data-i18n="home.top.title">Places you can't miss</h2>
+          <p data-i18n="home.top.lead">From the shores of Issyk-Kul to ancient Silk Road caravanserais, here are the highlights most visitors fall in love with.</p>
+        </div>
+        <div class="bento">
+          <a class="bento__item reveal" href="destinations.html?place=songkul">
+            <img src="images/song-kul.jpg" alt="Song-Kul Lake" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.songkul.badge">Lake · Nomads</span><h3 data-i18n="dest.songkul.title">Song-Kul Lake</h3><p data-i18n="dest.songkul.desc">A remote alpine lake at around 3,000 m surrounded by summer pastures. Stay in yurt camps run by herder families and go horse riding.</p></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=issykkul">
+            <img src="images/issyk-kul.jpg" alt="Issyk-Kul Lake" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.issykkul.badge">Lake</span><h3 data-i18n="dest.issykkul.title">Issyk-Kul Lake</h3></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=alakul">
+            <img src="images/ala-kul.jpg" alt="Ala-Kul Lake" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.alakul.badge">Alpine lake</span><h3 data-i18n="dest.alakul.title">Ala-Kul Lake</h3></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=jetioguz">
+            <img src="images/jeti-oguz.jpg" alt="Jeti-Oguz" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.jetioguz.badge">Red rocks</span><h3 data-i18n="dest.jetioguz.title">Jeti-Oguz</h3></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=burana">
+            <img src="images/burana.jpg" alt="Burana Tower" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.silkroad.badge">Silk Road</span><h3 data-i18n="dest.burana.title">Burana Tower</h3></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=kelsuu">
+            <img src="images/kel-suu.jpg" alt="Kel-Suu Lake" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.kelsuu.badge">Hidden gem</span><h3 data-i18n="dest.kelsuu.title">Kel-Suu Lake</h3></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=tashrabat">
+            <img src="images/tash-rabat.jpg" alt="Tash-Rabat" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.silkroad.badge">Silk Road</span><h3 data-i18n="dest.tashrabat.title">Tash-Rabat</h3></div>
+          </a>
+          <a class="bento__item reveal" href="destinations.html?place=altynarashan">
+            <img src="images/altyn-arashan.jpg" alt="Altyn-Arashan" loading="lazy">
+            <span class="bento__arrow">↗</span>
+            <div class="bento__text"><span class="pill" data-i18n="dest.altynarashan.badge">Hot springs</span><h3 data-i18n="dest.altynarashan.title">Altyn-Arashan</h3></div>
+          </a>
+        </div>
+        <p style="text-align:center;margin-top:44px"><a href="destinations.html" class="btn btn--dark" data-i18n="home.allDest">See all destinations →</a></p>
+      </div>
+    </section>
+
+    <!-- About Kyrgyzstan teaser -->
+    <section class="section section--alt">
+      <div class="container split">
+        <div class="photo-stack reveal">
+          <img src="images/bishkek.jpg" alt="Ala-Too Square, Bishkek" loading="lazy">
+          <img src="images/manas.jpg" alt="Manas monument, Bishkek" loading="lazy">
+          <div class="photo-badge"><div><strong>31.08.1991</strong><span data-i18n="stat.indep">Year of independence</span></div></div>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="home.about.eyebrow">About Kyrgyzstan</span>
+          <h2 data-i18n="home.about.title">A young nation with an ancient soul</h2>
+          <p data-i18n="home.about.lead">Kyrgyzstan has been independent only since 1991, but the Kyrgyz people were first mentioned in Chinese chronicles more than 2,000 years ago. Their epic of Manas, Silk Road cities and nomadic traditions still shape everyday life.</p>
+          <div class="mini-facts">
+            <div><strong data-i18n="fact.capital.t">Bishkek</strong><span data-i18n="fact.capital.d">Capital city</span></div>
+            <div><strong data-i18n="about.pop.t">≈ 7.5 million</strong><span data-i18n="about.pop.d">Population</span></div>
+            <div><strong>200,105 km²</strong><span data-i18n="about.area.d">Area</span></div>
+            <div><strong data-i18n="fact.lang.t">Kyrgyz &amp; Russian</strong><span data-i18n="fact.lang.d">Official languages</span></div>
+          </div>
+          <a href="history.html" class="btn btn--primary" data-i18n="home.about.btn">Read the history of Kyrgyzstan →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why visit -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="home.why.eyebrow">Why Kyrgyzstan</span>
+          <h2 data-i18n="home.why.title">The Switzerland of Central Asia</h2>
+          <p data-i18n="home.why.lead">Kyrgyzstan is one of the easiest and most rewarding countries to explore in the region.</p>
+        </div>
+        <div class="features">
+          <div class="feature reveal"><div class="feature__icon">🏔️</div><h3 data-i18n="home.f1.t">Wild nature</h3><p data-i18n="home.f1.d">Tian Shan and Pamir ranges, peaks above 7,000 m, glaciers, canyons and more than 2,000 lakes.</p></div>
+          <div class="feature reveal"><div class="feature__icon">🐎</div><h3 data-i18n="home.f2.t">Nomadic culture</h3><p data-i18n="home.f2.d">Stay in a yurt, try horse riding, watch eagle hunters and taste fresh kymyz (fermented mare's milk).</p></div>
+          <div class="feature reveal"><div class="feature__icon">🐫</div><h3 data-i18n="home.f3.t">Silk Road history</h3><p data-i18n="home.f3.d">Burana Tower, Tash-Rabat caravanserai and Osh's Sulaiman-Too, a UNESCO World Heritage Site.</p></div>
+          <div class="feature reveal"><div class="feature__icon">💰</div><h3 data-i18n="home.f4.t">Great value</h3><p data-i18n="home.f4.d">Guesthouses, local food and transport are affordable, so your budget goes a long way here.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiences -->
+    <section class="section section--alt">
+      <div class="container split split--rev">
+        <div class="photo-stack reveal">
+          <img src="images/nomad-games.jpg" alt="Eagle hunter at the World Nomad Games" loading="lazy">
+          <img src="images/yurt.jpg" alt="Kyrgyz yurt" loading="lazy">
+        </div>
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="home.exp.eyebrow">Experiences</span>
+          <h2 data-i18n="home.exp.title">Live like a nomad for a few days</h2>
+          <p data-i18n="home.exp.lead">Community-based tourism lets you stay with local families, eat home-cooked food and support villages directly.</p>
+          <ul class="checklist">
+            <li data-i18n="home.exp.l1">Multi-day horse treks to Song-Kul or Ala-Kul</li>
+            <li data-i18n="home.exp.l2">Eagle hunting and kok-boru (horse game) demonstrations</li>
+            <li data-i18n="home.exp.l3">Felt-making workshops with local artisans</li>
+            <li data-i18n="home.exp.l4">Skiing at Karakol in winter</li>
+          </ul>
+          <a href="culture.html" class="btn btn--dark" data-i18n="home.exp.btn">Learn about Kyrgyz culture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" style="background-image:url('images/ala-archa.jpg')">
+      <div class="container">
+        <h2 data-i18n="home.cta.title">Ready for your adventure?</h2>
+        <p data-i18n="home.cta.lead">Tell us your dates and interests, and we'll help you build the perfect route.</p>
+        <a href="contact.html" class="btn btn--primary" data-i18n="home.cta.btn">Request a free itinerary</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <svg class="logo__mark" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#d7262e"/><path d="M10 22a8 8 0 0 1 16 0z" fill="#f5b301"/><path d="M18 8v4M9.5 12.5l2.6 2.6M26.5 12.5l-2.6 2.6" stroke="#f5b301" stroke-width="2" stroke-linecap="round"/><path d="M6 22h24M10 26.5h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          Travel Horizon
+        </a>
+        <p data-i18n="footer.about">An independent travel guide for international visitors to the Kyrgyz Republic.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <ul>
+          <li><a href="destinations.html" data-i18n="nav.destinations">Destinations</a></li>
+          <li><a href="history.html" data-i18n="nav.history">History</a></li>
+          <li><a href="culture.html" data-i18n="nav.culture">Culture &amp; Food</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.plan">Plan</h4>
+        <ul>
+          <li><a href="plan.html#visa" data-i18n="footer.visa">Visa &amp; entry</a></li>
+          <li><a href="plan.html#transport" data-i18n="footer.transport">Transport</a></li>
+          <li><a href="plan.html#phrases" data-i18n="footer.phrases">Phrasebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.help">Help</h4>
+        <ul>
+          <li><a href="contact.html" data-i18n="footer.contact">Contact us</a></li>
+          <li><a href="history.html#sources" data-i18n="footer.sources">Sources &amp; photo credits</a></li>
+          <li><a href="admin.html" data-i18n="footer.admin">🔒 Admin login</a></li>
+          <li><span data-i18n="footer.emergency">Emergency:</span> <strong>112</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">© <span class="year"></span> Travel Horizon · <span data-i18n="footer.project">University web project</span></div>
+  </footer>
+
+  <button class="to-top" aria-label="Back to top">↑</button>
+  <script src="js/i18n/ru.js"></script>
+  <script src="js/i18n/es.js"></script>
+  <script src="js/i18n/it.js"></script>
+  <script src="js/i18n/ky.js"></script>
+  <script src="js/i18n/fr.js"></script>
+  <script src="js/credits.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

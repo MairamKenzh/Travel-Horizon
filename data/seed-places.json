@@ -1,0 +1,1213 @@
+[
+  {
+    "id": "issykkul",
+    "category": [
+      "lakes"
+    ],
+    "lat": 42.42,
+    "lng": 77.25,
+    "image": "images/issyk-kul.jpg",
+    "photo": "issyk-kul",
+    "emoji": "🌊",
+    "sort": 0,
+    "texts": {
+      "en": {
+        "badge": "Lake",
+        "title": "Issyk-Kul Lake",
+        "description": "The \"pearl of Kyrgyzstan\": about 180 km long, at 1,600 m altitude. Swim in summer, visit Cholpon-Ata's petroglyphs, and enjoy mountain views from every beach.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Jun–Sep",
+          "🚗 4–5 h from Bishkek"
+        ]
+      },
+      "ru": {
+        "badge": "Озеро",
+        "title": "Озеро Иссык-Куль",
+        "description": "«Жемчужина Кыргызстана»: около 180 км в длину, на высоте 1600 м. Купайтесь летом, посетите петроглифы Чолпон-Аты и любуйтесь горами с любого пляжа.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "☀️ Июнь–сент.",
+          "🚗 4–5 ч от Бишкека"
+        ]
+      },
+      "es": {
+        "badge": "Lago",
+        "title": "Lago Issyk-Kul",
+        "description": "La «perla de Kirguistán»: unos 180 km de largo, a 1.600 m de altitud. Báñate en verano, visita los petroglifos de Cholpon-Ata y disfruta de las montañas desde cualquier playa.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Jun–sep",
+          "🚗 4–5 h desde Biskek"
+        ]
+      },
+      "it": {
+        "badge": "Lago",
+        "title": "Lago Issyk-Kul",
+        "description": "La «perla del Kirghizistan»: lungo circa 180 km, a 1.600 m di altitudine. Fai il bagno in estate, visita i petroglifi di Cholpon-Ata e goditi la vista sulle montagne da ogni spiaggia.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Giu–set",
+          "🚗 4–5 h da Biškek"
+        ]
+      },
+      "ky": {
+        "badge": "Көл",
+        "title": "Ысык-Көл",
+        "description": "«Кыргызстандын бермети»: узундугу 180 кмге жакын, деңиз деңгээлинен 1600 м бийиктикте. Жайында сууга түшүп, Чолпон-Атадагы петроглифтерди көрүп, ар бир жээктен тоолорго суктаныңыз.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "☀️ Июнь–сент.",
+          "🚗 Бишкектен 4–5 саат"
+        ]
+      },
+      "fr": {
+        "badge": "Lac",
+        "title": "Lac Issyk-Koul",
+        "description": "La « perle du Kirghizistan » : environ 180 km de long, à 1 600 m d'altitude. Baignez-vous en été, visitez les pétroglyphes de Tcholpon-Ata et profitez de la vue sur les montagnes depuis chaque plage.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "☀️ Juin–sept.",
+          "🚗 4–5 h de Bichkek"
+        ]
+      }
+    }
+  },
+  {
+    "id": "songkul",
+    "category": [
+      "lakes",
+      "mountains"
+    ],
+    "lat": 41.83,
+    "lng": 75.13,
+    "image": "images/song-kul.jpg",
+    "photo": "song-kul",
+    "emoji": "⛺",
+    "sort": 1,
+    "texts": {
+      "en": {
+        "badge": "Lake · Nomads",
+        "title": "Song-Kul Lake",
+        "description": "A remote alpine lake at around 3,000 m surrounded by summer pastures. Stay in yurt camps run by herder families and go horse riding.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Jun–Sep",
+          "🐎 Horse treks"
+        ]
+      },
+      "ru": {
+        "badge": "Озеро · Кочевники",
+        "title": "Озеро Сон-Куль",
+        "description": "Отдалённое высокогорное озеро на высоте около 3000 м среди летних пастбищ. Живите в юрточных лагерях семей пастухов и катайтесь верхом.",
+        "tags": [
+          "📍 Нарын",
+          "☀️ Июнь–сент.",
+          "🐎 Конные походы"
+        ]
+      },
+      "es": {
+        "badge": "Lago · Nómadas",
+        "title": "Lago Song-Kul",
+        "description": "Un remoto lago alpino a unos 3.000 m rodeado de pastos de verano. Alójate en campamentos de yurtas de familias de pastores y monta a caballo.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Jun–sep",
+          "🐎 Rutas a caballo"
+        ]
+      },
+      "it": {
+        "badge": "Lago · Nomadi",
+        "title": "Lago Song-Kul",
+        "description": "Un remoto lago alpino a circa 3.000 m circondato da pascoli estivi. Soggiorna nei campi di yurte gestiti da famiglie di pastori e vai a cavallo.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Giu–set",
+          "🐎 Trekking a cavallo"
+        ]
+      },
+      "ky": {
+        "badge": "Көл · Көчмөндөр",
+        "title": "Соң-Көл",
+        "description": "Жайкы жайыттар менен курчалган, болжол менен 3000 м бийиктиктеги алыскы тоо көлү. Малчы үй-бүлөлөрдүн боз үй лагерлеринде жашап, атка минип сейилдеңиз.",
+        "tags": [
+          "📍 Нарын",
+          "☀️ Июнь–сент.",
+          "🐎 Атчан саякат"
+        ]
+      },
+      "fr": {
+        "badge": "Lac · Nomades",
+        "title": "Lac Song-Koul",
+        "description": "Un lac alpin isolé à environ 3 000 m, entouré de pâturages d'été. Logez dans des camps de yourtes tenus par des familles de bergers et partez à cheval.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Juin–sept.",
+          "🐎 Randonnées à cheval"
+        ]
+      }
+    }
+  },
+  {
+    "id": "alakul",
+    "category": [
+      "lakes",
+      "mountains"
+    ],
+    "lat": 42.27,
+    "lng": 78.53,
+    "image": "images/ala-kul.jpg",
+    "photo": "ala-kul",
+    "emoji": "🥾",
+    "sort": 2,
+    "texts": {
+      "en": {
+        "badge": "Alpine lake",
+        "title": "Ala-Kul Lake",
+        "description": "A turquoise glacial lake at 3,532 m in the Teskey Ala-Too range. It can only be reached on foot, on a classic 2–3 day trek from Karakol.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Jul–Sep",
+          "🥾 Trek only"
+        ]
+      },
+      "ru": {
+        "badge": "Высокогорное озеро",
+        "title": "Озеро Ала-Куль",
+        "description": "Бирюзовое ледниковое озеро на высоте 3532 м в хребте Терскей Ала-Тоо. Добраться можно только пешком — классический поход на 2–3 дня из Каракола.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "☀️ Июль–сент.",
+          "🥾 Только пешком"
+        ]
+      },
+      "es": {
+        "badge": "Lago alpino",
+        "title": "Lago Ala-Kul",
+        "description": "Un lago glaciar turquesa a 3.532 m en la cordillera Teskey Ala-Too. Solo se llega a pie, en un clásico trekking de 2–3 días desde Karakol.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Jul–sep",
+          "🥾 Solo a pie"
+        ]
+      },
+      "it": {
+        "badge": "Lago alpino",
+        "title": "Lago Ala-Kul",
+        "description": "Un lago glaciale turchese a 3.532 m nella catena del Teskey Ala-Too. Si raggiunge solo a piedi, con un classico trekking di 2–3 giorni da Karakol.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Lug–set",
+          "🥾 Solo a piedi"
+        ]
+      },
+      "ky": {
+        "badge": "Бийик тоо көлү",
+        "title": "Ала-Көл",
+        "description": "Тескей Ала-Тоо кырка тоосундагы 3532 м бийиктиктеги көгүш мөңгү көлү. Ага жөө гана жетүүгө болот — Караколдон 2–3 күндүк белгилүү жөө саякат.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "☀️ Июль–сент.",
+          "🥾 Жөө гана"
+        ]
+      },
+      "fr": {
+        "badge": "Lac alpin",
+        "title": "Lac Ala-Koul",
+        "description": "Un lac glaciaire turquoise à 3 532 m dans la chaîne du Teskeï Ala-Too. On ne l'atteint qu'à pied, lors d'un trek classique de 2 à 3 jours depuis Karakol.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "☀️ Juil.–sept.",
+          "🥾 À pied uniquement"
+        ]
+      }
+    }
+  },
+  {
+    "id": "kelsuu",
+    "category": [
+      "lakes",
+      "mountains"
+    ],
+    "lat": 40.63,
+    "lng": 75.16,
+    "image": "images/kel-suu.jpg",
+    "photo": "kel-suu",
+    "emoji": "💎",
+    "sort": 3,
+    "texts": {
+      "en": {
+        "badge": "Hidden gem",
+        "title": "Kel-Suu Lake",
+        "description": "An emerald lake squeezed between sheer rock walls near the Chinese border. About four hours by car from Naryn, then on foot or on horseback.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Jun–Sep",
+          "🛂 Border permit"
+        ]
+      },
+      "ru": {
+        "badge": "Скрытая жемчужина",
+        "title": "Озеро Кёль-Суу",
+        "description": "Изумрудное озеро, зажатое между отвесными скалами у границы с Китаем. Около четырёх часов на машине от Нарына, дальше пешком или верхом.",
+        "tags": [
+          "📍 Нарын",
+          "☀️ Июнь–сент.",
+          "🛂 Нужен пропуск"
+        ]
+      },
+      "es": {
+        "badge": "Joya escondida",
+        "title": "Lago Kel-Suu",
+        "description": "Un lago esmeralda encajado entre paredes de roca cerca de la frontera china. Unas cuatro horas en coche desde Naryn y luego a pie o a caballo.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Jun–sep",
+          "🛂 Permiso fronterizo"
+        ]
+      },
+      "it": {
+        "badge": "Gioiello nascosto",
+        "title": "Lago Kel-Suu",
+        "description": "Un lago color smeraldo stretto tra pareti di roccia vicino al confine cinese. Circa quattro ore d'auto da Naryn, poi a piedi o a cavallo.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Giu–set",
+          "🛂 Permesso di frontiera"
+        ]
+      },
+      "ky": {
+        "badge": "Жашыруун берметтей жер",
+        "title": "Көл-Суу",
+        "description": "Кытай чек арасына жакын, тик аскалардын ортосундагы зымырыт түстүү көл. Нарындан машина менен төрт саатка жакын, андан ары жөө же ат менен.",
+        "tags": [
+          "📍 Нарын",
+          "☀️ Июнь–сент.",
+          "🛂 Чек ара уруксаты"
+        ]
+      },
+      "fr": {
+        "badge": "Trésor caché",
+        "title": "Lac Kel-Suu",
+        "description": "Un lac émeraude enserré entre des parois rocheuses près de la frontière chinoise. Environ quatre heures de voiture depuis Naryn, puis à pied ou à cheval.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Juin–sept.",
+          "🛂 Permis frontalier"
+        ]
+      }
+    }
+  },
+  {
+    "id": "alaarcha",
+    "category": [
+      "mountains"
+    ],
+    "lat": 42.58,
+    "lng": 74.48,
+    "image": "images/ala-archa.jpg",
+    "photo": "ala-archa",
+    "emoji": "🏞️",
+    "sort": 4,
+    "texts": {
+      "en": {
+        "badge": "National park",
+        "title": "Ala-Archa National Park",
+        "description": "A gorge 40 km south of Bishkek with trails to waterfalls and the Ak-Sai glacier. Easy access for a day hike.",
+        "tags": [
+          "📍 Chuy",
+          "🗓️ All year",
+          "🚕 1 h from Bishkek"
+        ]
+      },
+      "ru": {
+        "badge": "Национальный парк",
+        "title": "Национальный парк Ала-Арча",
+        "description": "Ущелье в 40 км к югу от Бишкека с тропами к водопадам и леднику Ак-Сай. Удобно для однодневного похода.",
+        "tags": [
+          "📍 Чуй",
+          "🗓️ Круглый год",
+          "🚕 1 ч от Бишкека"
+        ]
+      },
+      "es": {
+        "badge": "Parque nacional",
+        "title": "Parque Nacional Ala-Archa",
+        "description": "Un desfiladero a 40 km al sur de Biskek con senderos hacia cascadas y el glaciar Ak-Sai. Ideal para una excursión de un día.",
+        "tags": [
+          "📍 Chuy",
+          "🗓️ Todo el año",
+          "🚕 1 h desde Biskek"
+        ]
+      },
+      "it": {
+        "badge": "Parco nazionale",
+        "title": "Parco nazionale Ala-Archa",
+        "description": "Una gola a 40 km a sud di Biškek con sentieri verso cascate e il ghiacciaio Ak-Sai. Facilmente raggiungibile per un'escursione in giornata.",
+        "tags": [
+          "📍 Chuy",
+          "🗓️ Tutto l'anno",
+          "🚕 1 h da Biškek"
+        ]
+      },
+      "ky": {
+        "badge": "Улуттук парк",
+        "title": "Ала-Арча улуттук паркы",
+        "description": "Бишкектен 40 км түштүктөгү капчыгай: шаркыратмаларга жана Ак-Сай мөңгүсүнө жолдор бар. Бир күндүк жөө саякатка ыңгайлуу.",
+        "tags": [
+          "📍 Чүй",
+          "🗓️ Жыл бою",
+          "🚕 Бишкектен 1 саат"
+        ]
+      },
+      "fr": {
+        "badge": "Parc national",
+        "title": "Parc national d'Ala-Artcha",
+        "description": "Une gorge à 40 km au sud de Bichkek, avec des sentiers menant à des cascades et au glacier Ak-Saï. Idéal pour une randonnée d'une journée.",
+        "tags": [
+          "📍 Tchouï",
+          "🗓️ Toute l'année",
+          "🚕 1 h de Bichkek"
+        ]
+      }
+    }
+  },
+  {
+    "id": "karakol",
+    "category": [
+      "mountains",
+      "cities"
+    ],
+    "lat": 42.49,
+    "lng": 78.39,
+    "image": "images/karakol.jpg",
+    "photo": "karakol",
+    "emoji": "⛪",
+    "sort": 5,
+    "texts": {
+      "en": {
+        "badge": "Adventure hub",
+        "title": "Karakol",
+        "description": "Base for treks to Ala-Kul lake and Altyn-Arashan hot springs. See the wooden Holy Trinity Cathedral and the Dungan Mosque, and ski in winter.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "🗓️ All year"
+        ]
+      },
+      "ru": {
+        "badge": "Центр активного отдыха",
+        "title": "Каракол",
+        "description": "Отправная точка походов к озеру Ала-Куль и горячим источникам Алтын-Арашан. Деревянный Свято-Троицкий собор, Дунганская мечеть и горнолыжная база зимой.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "🗓️ Круглый год"
+        ]
+      },
+      "es": {
+        "badge": "Centro de aventura",
+        "title": "Karakol",
+        "description": "Base para rutas al lago Ala-Kul y a las aguas termales de Altyn-Arashan. Visita la catedral de madera de la Santísima Trinidad y la mezquita dungana, y esquía en invierno.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "🗓️ Todo el año"
+        ]
+      },
+      "it": {
+        "badge": "Base per l'avventura",
+        "title": "Karakol",
+        "description": "Punto di partenza per i trekking verso il lago Ala-Kul e le sorgenti termali di Altyn-Arashan. Visita la cattedrale in legno della Santissima Trinità e la moschea dungana, e scia in inverno.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "🗓️ Tutto l'anno"
+        ]
+      },
+      "ky": {
+        "badge": "Активдүү эс алуу борбору",
+        "title": "Каракол",
+        "description": "Ала-Көлгө жана Алтын-Арашан ысык булактарына жөө саякаттын башталышы. Жыгач Ыйык Троица чиркөөсү, Дунган мечити жана кышында лыжа базасы.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "🗓️ Жыл бою"
+        ]
+      },
+      "fr": {
+        "badge": "Base d'aventure",
+        "title": "Karakol",
+        "description": "Point de départ des treks vers le lac Ala-Koul et les sources chaudes d'Altyn-Arashan. Visitez la cathédrale en bois de la Sainte-Trinité et la mosquée dounganes, et skiez en hiver.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "🗓️ Toute l'année"
+        ]
+      }
+    }
+  },
+  {
+    "id": "altynarashan",
+    "category": [
+      "mountains"
+    ],
+    "lat": 42.37,
+    "lng": 78.61,
+    "image": "images/altyn-arashan.jpg",
+    "photo": "altyn-arashan",
+    "emoji": "♨️",
+    "sort": 6,
+    "texts": {
+      "en": {
+        "badge": "Hot springs",
+        "title": "Altyn-Arashan",
+        "description": "A green alpine valley above Karakol with a rushing river, spruce forests and natural hot springs. Soak in the warm pools after a day of hiking.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ May–Oct",
+          "♨️ Hot springs"
+        ]
+      },
+      "ru": {
+        "badge": "Горячие источники",
+        "title": "Алтын-Арашан",
+        "description": "Зелёная альпийская долина над Караколом с бурной рекой, еловыми лесами и природными горячими источниками. Искупайтесь в тёплых бассейнах после дня в горах.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "☀️ Май–окт.",
+          "♨️ Горячие источники"
+        ]
+      },
+      "es": {
+        "badge": "Aguas termales",
+        "title": "Altyn-Arashan",
+        "description": "Un valle alpino verde sobre Karakol con un río caudaloso, bosques de abetos y aguas termales naturales. Relájate en las pozas calientes tras un día de senderismo.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ May–oct",
+          "♨️ Aguas termales"
+        ]
+      },
+      "it": {
+        "badge": "Sorgenti termali",
+        "title": "Altyn-Arashan",
+        "description": "Una verde valle alpina sopra Karakol con un fiume impetuoso, boschi di abeti e sorgenti termali naturali. Rilassati nelle vasche calde dopo una giornata di cammino.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Mag–ott",
+          "♨️ Sorgenti termali"
+        ]
+      },
+      "ky": {
+        "badge": "Ысык булактар",
+        "title": "Алтын-Арашан",
+        "description": "Караколдун үстүндөгү шарылдаган дарыясы, карагай токойлору жана табигый ысык булактары бар жашыл тоо өрөөнү. Бир күн басып чарчагандан кийин жылуу булакка түшүңүз.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "☀️ Май–окт.",
+          "♨️ Ысык булактар"
+        ]
+      },
+      "fr": {
+        "badge": "Sources chaudes",
+        "title": "Altyn-Arashan",
+        "description": "Une verte vallée alpine au-dessus de Karakol, avec une rivière tumultueuse, des forêts d'épicéas et des sources chaudes naturelles. Détendez-vous dans les bassins après une journée de marche.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "☀️ Mai–oct.",
+          "♨️ Sources chaudes"
+        ]
+      }
+    }
+  },
+  {
+    "id": "jetioguz",
+    "category": [
+      "mountains"
+    ],
+    "lat": 42.35,
+    "lng": 78.23,
+    "image": "images/jeti-oguz.jpg",
+    "photo": "jeti-oguz",
+    "emoji": "🐂",
+    "sort": 7,
+    "texts": {
+      "en": {
+        "badge": "Red rocks",
+        "title": "Jeti-Oguz",
+        "description": "\"Seven Bulls\": striking red sandstone cliffs and the Broken Heart rock, with a lush valley perfect for hiking and picnics.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ May–Oct"
+        ]
+      },
+      "ru": {
+        "badge": "Красные скалы",
+        "title": "Джети-Огуз",
+        "description": "«Семь быков»: яркие красные скалы из песчаника и скала «Разбитое сердце», а рядом — зелёная долина для прогулок и пикников.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "☀️ Май–окт."
+        ]
+      },
+      "es": {
+        "badge": "Rocas rojas",
+        "title": "Jeti-Oguz",
+        "description": "«Siete Toros»: impresionantes acantilados de arenisca roja y la roca del Corazón Roto, con un valle verde perfecto para caminar y hacer pícnic.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ May–oct"
+        ]
+      },
+      "it": {
+        "badge": "Rocce rosse",
+        "title": "Jeti-Oguz",
+        "description": "«Sette Tori»: spettacolari scogliere di arenaria rossa e la roccia del Cuore Spezzato, con una valle verde perfetta per escursioni e picnic.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Mag–ott"
+        ]
+      },
+      "ky": {
+        "badge": "Кызыл аска",
+        "title": "Жети-Өгүз",
+        "description": "«Жети өгүз»: кызыл кумдук аскалар жана «Сынган жүрөк» аскасы, жанында сейилдөө жана пикник үчүн жашыл өрөөн.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "☀️ Май–окт."
+        ]
+      },
+      "fr": {
+        "badge": "Roches rouges",
+        "title": "Djety-Oguz",
+        "description": "« Sept Taureaux » : d'impressionnantes falaises de grès rouge et le rocher du Cœur brisé, avec une vallée verdoyante parfaite pour randonner et pique-niquer.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "☀️ Mai–oct."
+        ]
+      }
+    }
+  },
+  {
+    "id": "skazka",
+    "category": [
+      "mountains"
+    ],
+    "lat": 42.16,
+    "lng": 77.37,
+    "image": "images/skazka.jpg",
+    "photo": "skazka",
+    "emoji": "🏜️",
+    "sort": 8,
+    "texts": {
+      "en": {
+        "badge": "Canyon",
+        "title": "Skazka (Fairy Tale) Canyon",
+        "description": "Colourful wind-carved rock formations on the southern shore of Issyk-Kul that look like castles and dragons.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Apr–Oct"
+        ]
+      },
+      "ru": {
+        "badge": "Каньон",
+        "title": "Каньон Сказка",
+        "description": "Разноцветные скалы, выточенные ветром на южном берегу Иссык-Куля. Они похожи на замки и драконов.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "☀️ Апр.–окт."
+        ]
+      },
+      "es": {
+        "badge": "Cañón",
+        "title": "Cañón Skazka (Cuento de hadas)",
+        "description": "Formaciones rocosas de colores talladas por el viento en la orilla sur del Issyk-Kul que parecen castillos y dragones.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Abr–oct"
+        ]
+      },
+      "it": {
+        "badge": "Canyon",
+        "title": "Canyon Skazka (della Fiaba)",
+        "description": "Formazioni rocciose colorate scolpite dal vento sulla riva sud dell'Issyk-Kul, che sembrano castelli e draghi.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Apr–ott"
+        ]
+      },
+      "ky": {
+        "badge": "Капчыгай",
+        "title": "Жомок капчыгайы",
+        "description": "Ысык-Көлдүн түштүк жээгиндеги шамал жонуган түркүн түстүү аскалар. Алар сепилдерге жана ажыдаарларга окшош.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "☀️ Апр.–окт."
+        ]
+      },
+      "fr": {
+        "badge": "Canyon",
+        "title": "Canyon Skazka (Conte de fées)",
+        "description": "Des formations rocheuses colorées sculptées par le vent sur la rive sud de l'Issyk-Koul, qui ressemblent à des châteaux et à des dragons.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "☀️ Avr.–oct."
+        ]
+      }
+    }
+  },
+  {
+    "id": "barskoon",
+    "category": [
+      "mountains"
+    ],
+    "lat": 42.07,
+    "lng": 77.61,
+    "image": "images/barskoon.jpg",
+    "photo": "barskoon",
+    "emoji": "💧",
+    "sort": 9,
+    "texts": {
+      "en": {
+        "badge": "Waterfalls",
+        "title": "Barskoon Gorge",
+        "description": "A forested gorge on the south shore of Issyk-Kul with tall waterfalls and a monument to Yuri Gagarin, the first person in space, who rested here.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ May–Oct",
+          "💧 Waterfalls"
+        ]
+      },
+      "ru": {
+        "badge": "Водопады",
+        "title": "Ущелье Барскоон",
+        "description": "Лесистое ущелье на южном берегу Иссык-Куля с высокими водопадами и памятником Юрию Гагарину, первому человеку в космосе, который отдыхал здесь.",
+        "tags": [
+          "📍 Иссык-Куль",
+          "☀️ Май–окт.",
+          "💧 Водопады"
+        ]
+      },
+      "es": {
+        "badge": "Cascadas",
+        "title": "Desfiladero de Barskoon",
+        "description": "Un desfiladero boscoso en la orilla sur del Issyk-Kul con altas cascadas y un monumento a Yuri Gagarin, el primer hombre en el espacio, que descansó aquí.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ May–oct",
+          "💧 Cascadas"
+        ]
+      },
+      "it": {
+        "badge": "Cascate",
+        "title": "Gola di Barskoon",
+        "description": "Una gola boscosa sulla riva sud dell'Issyk-Kul con alte cascate e un monumento a Jurij Gagarin, il primo uomo nello spazio, che qui trascorse le vacanze.",
+        "tags": [
+          "📍 Issyk-Kul",
+          "☀️ Mag–ott",
+          "💧 Cascate"
+        ]
+      },
+      "ky": {
+        "badge": "Шаркыратмалар",
+        "title": "Барскоон капчыгайы",
+        "description": "Ысык-Көлдүн түштүк жээгиндеги бийик шаркыратмалары бар токойлуу капчыгай. Бул жерде эс алган космоско биринчи учкан адам Юрий Гагаринге эстелик турат.",
+        "tags": [
+          "📍 Ысык-Көл",
+          "☀️ Май–окт.",
+          "💧 Шаркыратмалар"
+        ]
+      },
+      "fr": {
+        "badge": "Cascades",
+        "title": "Gorges de Barskoon",
+        "description": "Des gorges boisées sur la rive sud de l'Issyk-Koul, avec de hautes cascades et un monument à Youri Gagarine, le premier homme dans l'espace, qui y a séjourné.",
+        "tags": [
+          "📍 Issyk-Koul",
+          "☀️ Mai–oct.",
+          "💧 Cascades"
+        ]
+      }
+    }
+  },
+  {
+    "id": "burana",
+    "category": [
+      "history"
+    ],
+    "lat": 42.747,
+    "lng": 75.249,
+    "image": "images/burana.jpg",
+    "photo": "burana",
+    "emoji": "🗼",
+    "sort": 10,
+    "texts": {
+      "en": {
+        "badge": "Silk Road",
+        "title": "Burana Tower",
+        "description": "An 11th-century minaret from the ancient city of Balasagun, surrounded by stone balbal grave markers. Easy half-day trip from Bishkek.",
+        "tags": [
+          "📍 Near Tokmok",
+          "🗓️ All year"
+        ]
+      },
+      "ru": {
+        "badge": "Шёлковый путь",
+        "title": "Башня Бурана",
+        "description": "Минарет XI века древнего города Баласагун, окружённый каменными балбалами. Лёгкая поездка на полдня из Бишкека.",
+        "tags": [
+          "📍 Рядом с Токмоком",
+          "🗓️ Круглый год"
+        ]
+      },
+      "es": {
+        "badge": "Ruta de la Seda",
+        "title": "Torre Burana",
+        "description": "Un minarete del siglo XI de la antigua ciudad de Balasagun, rodeado de estelas funerarias de piedra (balbals). Excursión fácil de medio día desde Biskek.",
+        "tags": [
+          "📍 Cerca de Tokmok",
+          "🗓️ Todo el año"
+        ]
+      },
+      "it": {
+        "badge": "Via della Seta",
+        "title": "Torre di Burana",
+        "description": "Un minareto dell'XI secolo dell'antica città di Balasagun, circondato da stele funerarie in pietra (balbal). Facile gita di mezza giornata da Biškek.",
+        "tags": [
+          "📍 Vicino a Tokmok",
+          "🗓️ Tutto l'anno"
+        ]
+      },
+      "ky": {
+        "badge": "Жибек жолу",
+        "title": "Бурана мунарасы",
+        "description": "Байыркы Баласагун шаарынан калган XI кылымдагы мунара, айланасында таш балбалдар турат. Бишкектен жарым күндүк жеңил саякат.",
+        "tags": [
+          "📍 Токмоктун жанында",
+          "🗓️ Жыл бою"
+        ]
+      },
+      "fr": {
+        "badge": "Route de la soie",
+        "title": "Tour de Burana",
+        "description": "Un minaret du XIe siècle de l'ancienne cité de Balasagun, entouré de stèles funéraires en pierre (balbals). Une excursion facile d'une demi-journée depuis Bichkek.",
+        "tags": [
+          "📍 Près de Tokmok",
+          "🗓️ Toute l'année"
+        ]
+      }
+    }
+  },
+  {
+    "id": "tashrabat",
+    "category": [
+      "history",
+      "mountains"
+    ],
+    "lat": 40.823,
+    "lng": 75.289,
+    "image": "images/tash-rabat.jpg",
+    "photo": "tash-rabat",
+    "emoji": "🐫",
+    "sort": 11,
+    "texts": {
+      "en": {
+        "badge": "Silk Road",
+        "title": "Tash-Rabat",
+        "description": "A 15th-century stone caravanserai hidden in a valley at 3,500 m, on the old route towards China. Stay overnight in nearby yurts.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Jun–Sep"
+        ]
+      },
+      "ru": {
+        "badge": "Шёлковый путь",
+        "title": "Таш-Рабат",
+        "description": "Каменный караван-сарай XV века, скрытый в долине на высоте 3500 м на старом пути в Китай. Можно переночевать в юртах неподалёку.",
+        "tags": [
+          "📍 Нарын",
+          "☀️ Июнь–сент."
+        ]
+      },
+      "es": {
+        "badge": "Ruta de la Seda",
+        "title": "Tash-Rabat",
+        "description": "Un caravasar de piedra del siglo XV escondido en un valle a 3.500 m, en la antigua ruta hacia China. Puedes pasar la noche en yurtas cercanas.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Jun–sep"
+        ]
+      },
+      "it": {
+        "badge": "Via della Seta",
+        "title": "Tash-Rabat",
+        "description": "Un caravanserraglio in pietra del XV secolo nascosto in una valle a 3.500 m, sull'antica via verso la Cina. Si può pernottare nelle yurte vicine.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Giu–set"
+        ]
+      },
+      "ky": {
+        "badge": "Жибек жолу",
+        "title": "Таш-Рабат",
+        "description": "Кытайга баруучу байыркы жолдогу, 3500 м бийиктиктеги өрөөндө жашырылган XV кылымдагы таш кербен сарай. Жакын жердеги боз үйлөрдө түнөсөңүз болот.",
+        "tags": [
+          "📍 Нарын",
+          "☀️ Июнь–сент."
+        ]
+      },
+      "fr": {
+        "badge": "Route de la soie",
+        "title": "Tash-Rabat",
+        "description": "Un caravansérail en pierre du XVe siècle caché dans une vallée à 3 500 m, sur l'ancienne route vers la Chine. Possibilité de dormir dans des yourtes à proximité.",
+        "tags": [
+          "📍 Naryn",
+          "☀️ Juin–sept."
+        ]
+      }
+    }
+  },
+  {
+    "id": "osh",
+    "category": [
+      "history",
+      "cities"
+    ],
+    "lat": 40.531,
+    "lng": 72.783,
+    "image": "images/osh.jpg",
+    "photo": "osh",
+    "emoji": "🕌",
+    "sort": 12,
+    "texts": {
+      "en": {
+        "badge": "UNESCO",
+        "title": "Osh & Sulaiman-Too",
+        "description": "One of the oldest cities in Central Asia. Climb the sacred Sulaiman-Too mountain and explore the huge Jayma Bazaar.",
+        "tags": [
+          "📍 Osh",
+          "🗓️ All year",
+          "✈️ Flights from Bishkek"
+        ]
+      },
+      "ru": {
+        "badge": "UNESCO",
+        "title": "Ош и Сулайман-Тоо",
+        "description": "Один из древнейших городов Центральной Азии. Поднимитесь на священную гору Сулайман-Тоо и прогуляйтесь по огромному базару Жайма.",
+        "tags": [
+          "📍 Ош",
+          "🗓️ Круглый год",
+          "✈️ Рейсы из Бишкека"
+        ]
+      },
+      "es": {
+        "badge": "UNESCO",
+        "title": "Osh y Sulaiman-Too",
+        "description": "Una de las ciudades más antiguas de Asia Central. Sube a la montaña sagrada Sulaiman-Too y recorre el enorme bazar Jayma.",
+        "tags": [
+          "📍 Osh",
+          "🗓️ Todo el año",
+          "✈️ Vuelos desde Biskek"
+        ]
+      },
+      "it": {
+        "badge": "UNESCO",
+        "title": "Osh e Sulaiman-Too",
+        "description": "Una delle città più antiche dell'Asia centrale. Sali sulla montagna sacra Sulaiman-Too ed esplora l'enorme bazar Jayma.",
+        "tags": [
+          "📍 Osh",
+          "🗓️ Tutto l'anno",
+          "✈️ Voli da Biškek"
+        ]
+      },
+      "ky": {
+        "badge": "UNESCO",
+        "title": "Ош жана Сулайман-Тоо",
+        "description": "Борбордук Азиянын эң байыркы шаарларынын бири. Ыйык Сулайман-Тоого чыгып, чоң Жайма базарын кыдырыңыз.",
+        "tags": [
+          "📍 Ош",
+          "🗓️ Жыл бою",
+          "✈️ Бишкектен каттамдар"
+        ]
+      },
+      "fr": {
+        "badge": "UNESCO",
+        "title": "Och et Soulaïman-Too",
+        "description": "L'une des plus anciennes villes d'Asie centrale. Gravissez la montagne sacrée Soulaïman-Too et explorez l'immense bazar Jayma.",
+        "tags": [
+          "📍 Och",
+          "🗓️ Toute l'année",
+          "✈️ Vols depuis Bichkek"
+        ]
+      }
+    }
+  },
+  {
+    "id": "bishkek",
+    "category": [
+      "cities"
+    ],
+    "lat": 42.875,
+    "lng": 74.612,
+    "image": "images/bishkek.jpg",
+    "photo": "bishkek",
+    "emoji": "🏙️",
+    "sort": 13,
+    "texts": {
+      "en": {
+        "badge": "Capital",
+        "title": "Bishkek",
+        "description": "Green, leafy capital with Soviet-era boulevards, Ala-Too Square, Osh Bazaar and a lively café scene. Most trips start here.",
+        "tags": [
+          "📍 Chuy",
+          "🗓️ All year"
+        ]
+      },
+      "ru": {
+        "badge": "Столица",
+        "title": "Бишкек",
+        "description": "Зелёная столица с бульварами советской эпохи, площадью Ала-Тоо, Ошским базаром и множеством кафе. Большинство поездок начинается здесь.",
+        "tags": [
+          "📍 Чуй",
+          "🗓️ Круглый год"
+        ]
+      },
+      "es": {
+        "badge": "Capital",
+        "title": "Biskek",
+        "description": "Una capital verde con bulevares de la época soviética, la plaza Ala-Too, el bazar Osh y muchos cafés. La mayoría de los viajes empiezan aquí.",
+        "tags": [
+          "📍 Chuy",
+          "🗓️ Todo el año"
+        ]
+      },
+      "it": {
+        "badge": "Capitale",
+        "title": "Biškek",
+        "description": "Una capitale verde con viali di epoca sovietica, piazza Ala-Too, il bazar di Osh e tanti caffè. La maggior parte dei viaggi inizia qui.",
+        "tags": [
+          "📍 Chuy",
+          "🗓️ Tutto l'anno"
+        ]
+      },
+      "ky": {
+        "badge": "Борбор шаар",
+        "title": "Бишкек",
+        "description": "Совет доорундагы бульварлары, Ала-Тоо аянты, Ош базары жана көптөгөн кафелери бар жашыл борбор шаар. Көпчүлүк саякаттар ушул жерден башталат.",
+        "tags": [
+          "📍 Чүй",
+          "🗓️ Жыл бою"
+        ]
+      },
+      "fr": {
+        "badge": "Capitale",
+        "title": "Bichkek",
+        "description": "Une capitale verdoyante aux boulevards de l'époque soviétique, avec la place Ala-Too, le bazar d'Och et de nombreux cafés. La plupart des voyages commencent ici.",
+        "tags": [
+          "📍 Tchouï",
+          "🗓️ Toute l'année"
+        ]
+      }
+    }
+  },
+  {
+    "id": "arslanbob",
+    "category": [
+      "mountains"
+    ],
+    "lat": 41.333,
+    "lng": 72.933,
+    "image": "images/arslanbob.jpg",
+    "photo": "arslanbob",
+    "emoji": "🌰",
+    "sort": 14,
+    "texts": {
+      "en": {
+        "badge": "Forest",
+        "title": "Arslanbob",
+        "description": "Home to one of the largest natural walnut forests in the world, with waterfalls and a welcoming village homestay scene.",
+        "tags": [
+          "📍 Jalal-Abad",
+          "☀️ May–Oct"
+        ]
+      },
+      "ru": {
+        "badge": "Лес",
+        "title": "Арсланбоб",
+        "description": "Здесь растёт один из крупнейших в мире природных орехоплодных лесов. Водопады и гостеприимные сельские гостевые дома.",
+        "tags": [
+          "📍 Джалал-Абад",
+          "☀️ Май–окт."
+        ]
+      },
+      "es": {
+        "badge": "Bosque",
+        "title": "Arslanbob",
+        "description": "Hogar de uno de los mayores bosques naturales de nogales del mundo, con cascadas y acogedoras casas rurales.",
+        "tags": [
+          "📍 Jalal-Abad",
+          "☀️ May–oct"
+        ]
+      },
+      "it": {
+        "badge": "Foresta",
+        "title": "Arslanbob",
+        "description": "Qui si trova una delle più grandi foreste naturali di noci al mondo, con cascate e accoglienti case di villaggio.",
+        "tags": [
+          "📍 Jalal-Abad",
+          "☀️ Mag–ott"
+        ]
+      },
+      "ky": {
+        "badge": "Токой",
+        "title": "Арстанбап",
+        "description": "Дүйнөдөгү эң чоң табигый жаңгак токойлорунун бири ушул жерде. Шаркыратмалар жана меймандос айыл конок үйлөрү.",
+        "tags": [
+          "📍 Жалал-Абад",
+          "☀️ Май–окт."
+        ]
+      },
+      "fr": {
+        "badge": "Forêt",
+        "title": "Arslanbob",
+        "description": "L'une des plus grandes forêts naturelles de noyers au monde, avec des cascades et de chaleureuses maisons d'hôtes villageoises.",
+        "tags": [
+          "📍 Djalal-Abad",
+          "☀️ Mai–oct."
+        ]
+      }
+    }
+  },
+  {
+    "id": "sarychelek",
+    "category": [
+      "lakes",
+      "mountains"
+    ],
+    "lat": 41.87,
+    "lng": 71.96,
+    "image": "images/sary-chelek.jpg",
+    "photo": "sary-chelek",
+    "emoji": "🦌",
+    "sort": 15,
+    "texts": {
+      "en": {
+        "badge": "Biosphere reserve",
+        "title": "Sary-Chelek Lake",
+        "description": "A deep-blue lake within a UNESCO biosphere reserve, surrounded by spruce and fruit forests. Quiet and off the beaten path.",
+        "tags": [
+          "📍 Jalal-Abad",
+          "☀️ Jun–Sep"
+        ]
+      },
+      "ru": {
+        "badge": "Биосферный заповедник",
+        "title": "Озеро Сары-Челек",
+        "description": "Тёмно-синее озеро в биосферном заповеднике ЮНЕСКО среди еловых и плодовых лесов. Тихое место вдали от туристических троп.",
+        "tags": [
+          "📍 Джалал-Абад",
+          "☀️ Июнь–сент."
+        ]
+      },
+      "es": {
+        "badge": "Reserva de la biosfera",
+        "title": "Lago Sary-Chelek",
+        "description": "Un lago azul intenso dentro de una reserva de la biosfera de la UNESCO, rodeado de bosques de abetos y frutales. Tranquilo y fuera de las rutas turísticas.",
+        "tags": [
+          "📍 Jalal-Abad",
+          "☀️ Jun–sep"
+        ]
+      },
+      "it": {
+        "badge": "Riserva della biosfera",
+        "title": "Lago Sary-Chelek",
+        "description": "Un lago blu intenso all'interno di una riserva della biosfera UNESCO, circondato da foreste di abeti e alberi da frutto. Tranquillo e lontano dai percorsi turistici.",
+        "tags": [
+          "📍 Jalal-Abad",
+          "☀️ Giu–set"
+        ]
+      },
+      "ky": {
+        "badge": "Биосфералык корук",
+        "title": "Сары-Челек көлү",
+        "description": "Карагай жана мөмө токойлору менен курчалган ЮНЕСКОнун биосфералык коругундагы көк көл. Туристтик жолдордон алыс, тынч жер.",
+        "tags": [
+          "📍 Жалал-Абад",
+          "☀️ Июнь–сент."
+        ]
+      },
+      "fr": {
+        "badge": "Réserve de biosphère",
+        "title": "Lac Sary-Tchelek",
+        "description": "Un lac d'un bleu profond au sein d'une réserve de biosphère de l'UNESCO, entouré de forêts d'épicéas et d'arbres fruitiers. Calme et hors des sentiers battus.",
+        "tags": [
+          "📍 Djalal-Abad",
+          "☀️ Juin–sept."
+        ]
+      }
+    }
+  },
+  {
+    "id": "lenin",
+    "category": [
+      "mountains"
+    ],
+    "lat": 39.343,
+    "lng": 72.877,
+    "image": "images/lenin-peak.jpg",
+    "photo": "lenin-peak",
+    "emoji": "🧗",
+    "sort": 16,
+    "texts": {
+      "en": {
+        "badge": "Expedition",
+        "title": "Lenin Peak",
+        "description": "At 7,134 m it is one of the most accessible 7,000-metre peaks in the world. The base camp meadows are a great trek even for non-climbers.",
+        "tags": [
+          "📍 Osh (Pamir)",
+          "☀️ Jul–Aug"
+        ]
+      },
+      "ru": {
+        "badge": "Экспедиция",
+        "title": "Пик Ленина",
+        "description": "Высота 7134 м — один из самых доступных семитысячников мира. Луга базового лагеря — отличный маршрут даже для тех, кто не альпинист.",
+        "tags": [
+          "📍 Ош (Памир)",
+          "☀️ Июль–авг."
+        ]
+      },
+      "es": {
+        "badge": "Expedición",
+        "title": "Pico Lenin",
+        "description": "Con 7.134 m es uno de los sietemiles más accesibles del mundo. Los prados del campo base son una gran ruta incluso para quienes no escalan.",
+        "tags": [
+          "📍 Osh (Pamir)",
+          "☀️ Jul–ago"
+        ]
+      },
+      "it": {
+        "badge": "Spedizione",
+        "title": "Picco Lenin",
+        "description": "Con i suoi 7.134 m è uno dei settemila più accessibili al mondo. I prati del campo base sono un ottimo trekking anche per chi non scala.",
+        "tags": [
+          "📍 Osh (Pamir)",
+          "☀️ Lug–ago"
+        ]
+      },
+      "ky": {
+        "badge": "Экспедиция",
+        "title": "Ленин чокусу",
+        "description": "Бийиктиги 7134 м — дүйнөдөгү эң жеткиликтүү жети миңдиктердин бири. Базалык лагердин шалбаалары альпинист эместер үчүн да сонун маршрут.",
+        "tags": [
+          "📍 Ош (Памир)",
+          "☀️ Июль–авг."
+        ]
+      },
+      "fr": {
+        "badge": "Expédition",
+        "title": "Pic Lénine",
+        "description": "Avec ses 7 134 m, c'est l'un des 7 000 les plus accessibles au monde. Les prairies du camp de base offrent un superbe trek, même pour les non-alpinistes.",
+        "tags": [
+          "📍 Och (Pamir)",
+          "☀️ Juil.–août"
+        ]
+      }
+    }
+  }
+]
