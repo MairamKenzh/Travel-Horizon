@@ -57,5 +57,28 @@ API (writing requires login):
 
 To start over with the original 17 places, stop the server and delete `data/travel.db`.
 
+## Passwords
+
+| Situation | What to do |
+|---|---|
+| Change your password | Admin panel → **Users → Change my password** |
+| Give someone access | Admin panel → **Users → Add a person** |
+| Choose the first admin password on a new server | Set the variable `ADMIN_PASSWORD` before the first start |
+| Forgot the password (online, Railway) | Railway → service → **Variables** → add `ADMIN_RESET_PASSWORD` = new password (8+ characters). Railway restarts the site; log in, then **delete the variable**. |
+| Forgot the password (on your computer) | `npm run reset-password -- admin NewPassword123` |
+
+Resetting a password never deletes places or photos.
+
+## Putting the site online (Railway)
+
+1. Upload the project to GitHub (VS Code: **Source Control → Publish Branch**).
+2. On [railway.com](https://railway.com), log in with GitHub → **New Project → Deploy from GitHub repo** → choose the repository.
+3. Add a **Volume** to the service with mount path `/data` — this keeps the database and uploaded photos.
+4. In **Variables**, add `ADMIN_PASSWORD` with a strong password.
+5. In **Settings → Networking**, click **Generate Domain** to get the public address.
+
+After that, every push to GitHub updates the website automatically. Data is stored on the volume
+(`RAILWAY_VOLUME_MOUNT_PATH`), or in `DATA_DIR` if set, otherwise in `data/`.
+
 Opening the HTML files directly (without `npm start`) still works, but then the Destinations page
 shows the places built into `destinations.html` and the admin panel is unavailable.
