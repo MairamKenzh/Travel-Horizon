@@ -1,10 +1,34 @@
 # Travel Horizon
 
-A travel guide to Kyrgyzstan for foreign tourists, in 6 languages, with an admin panel for managing places.
+A travel guide to Kyrgyzstan for foreign tourists, in 6 languages, with booking requests sent to
+Telegram and an admin panel. Data and admin login are handled by [Supabase](https://supabase.com).
 
-## Running the site
+## Setup
 
 Requires [Node.js](https://nodejs.org) 24.
+
+### 1. Supabase
+
+1. Create a project.
+2. In the **SQL Editor**, run `supabase/schema.sql`, then `supabase/seed.sql` (the 17 starting places).
+3. In **Authentication → Users**, create your admin user.
+4. Make that user an admin (a login alone gives no access), replacing the email:
+
+   ```sql
+   insert into public.admins (user_id, role)
+   select id, 'admin' from auth.users where email = 'you@example.com'
+   on conflict (user_id) do update set role = 'admin';
+   ```
+
+### 2. Telegram
+
+1. Create a bot with [@BotFather](https://t.me/BotFather) and copy its token.
+2. Send your bot any message, or add it to a group that should receive requests.
+3. Open `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy `chat.id` from the response.
+
+### 3. Run
+
+Copy `.env.example` to `.env.local` (or `.env`), fill it in, then:
 
 ```bash
 npm install     # first time only
@@ -14,81 +38,47 @@ npm start
 - Website: <http://localhost:3000>
 - Admin panel: <http://localhost:3000/admin.html>
 
-On the first start the database (`data/travel.db`) is created with 17 places, and an admin account is created:
+## Admin panel
 
-| Username | Password |
-|---|---|
-| `admin` | `admin123` |
+- **Places:** add, edit or delete destinations, with texts in 6 languages, a photo, categories and a map location.
+- **Bookings:** read requests, set their status (new, contacted, closed), or delete them.
+- **Account:** change your password.
 
-**Change this password right away** in the admin panel under **Users → Change my password**.
-To choose a different first password, start the server with `ADMIN_PASSWORD=yourpassword npm start`
-(PowerShell: `$env:ADMIN_PASSWORD="yourpassword"; npm start`) before the database exists.
-
-## Using the admin panel
-
-- **Places** — add, edit or delete destinations. Each place has:
-  - texts in 6 languages (English is required; empty languages show the English text),
-  - a photo (upload one or pick an existing one) and a photo credit,
-  - categories, a map icon, an order number and a location picked on the map.
-  Changes appear on the Destinations page and the map immediately.
-- **Users** — give another person access by creating an account for them, remove accounts,
-  and change your own password.
+To add or remove an admin, use Supabase: **Authentication → Users** and the `admins` table.
 
 ## How it works
 
-| Part | File |
+| Part | Where |
 |---|---|
-| Server, REST API, login, database | `server.js` (Express + SQLite via `@libsql/client`; local file or Turso) |
-| Admin panel | `admin.html`, `js/admin.js`, `css/admin.css` |
+| Website, places API, booking requests, Telegram | `server.js` (Express) |
+| Tables, security rules, photo storage | `supabase/schema.sql` |
+| Starting places | `supabase/seed.sql` |
+| Admin panel (talks to Supabase directly) | `admin.html`, `js/admin.js`, `css/admin.css` |
 | Public site | `*.html`, `css/style.css`, `js/main.js` |
 | Translations of the fixed site text | `js/i18n/*.js` |
-| Starting data for the database | `data/seed-places.json` |
-
-API (writing requires login):
 
 | Method | URL | Purpose |
 |---|---|---|
-| GET | `/api/places` | List places (public) |
-| POST / PUT / DELETE | `/api/places`, `/api/places/:id` | Add / edit / delete a place |
-| POST | `/api/upload` | Upload a photo |
-| POST | `/api/login`, `/api/logout` | Log in / out |
-| GET / POST / DELETE | `/api/users`, `/api/users/:id` | Manage admin accounts |
-| PUT | `/api/users/me/password` | Change own password |
+| GET | `/api/places` | List places |
+| POST | `/api/bookings` | Send a booking request (validated, saved, then sent to Telegram) |
+| GET | `/api/config` | Public Supabase settings for the admin panel |
+| GET | `/api/images` | Built-in photos offered in the admin panel |
 
-To start over with the original 17 places, stop the server and delete `data/travel.db`.
+**Security:** Row Level Security lets anyone read places, and only accounts in `admins` change places or
+photos and read bookings. Visitors can't write to the database directly: bookings go through the server,
+which holds `SUPABASE_SERVICE_KEY` and `TELEGRAM_BOT_TOKEN`. Keep both out of the browser and out of Git.
 
-## Passwords
+A booking is saved before the Telegram message is sent, so it isn't lost if Telegram is down. The admin
+panel marks such requests as "not sent to Telegram".
 
-| Situation | What to do |
-|---|---|
-| Change your password | Admin panel → **Users → Change my password** |
-| Give someone access | Admin panel → **Users → Add a person** |
-| Choose the first admin password on a new server | Set the variable `ADMIN_PASSWORD` before the first start |
-| Forgot the password (online site) | Render → service → **Environment** → add `ADMIN_RESET_PASSWORD` = new password (8+ characters) → **Save, rebuild and deploy**. Log in, then **delete the variable**. |
-| Forgot the password (on your computer) | `npm run reset-password -- admin NewPassword123` |
+## Putting the site online (Render)
 
-Resetting a password never deletes places or photos.
+1. Push the project to GitHub.
+2. On [render.com](https://render.com): **New → Blueprint** → choose the repository.
+3. Enter the 5 values from your `.env` when Render asks for them, then deploy.
 
-## Putting the site online (Render + Turso, free)
+Every push to GitHub updates the site. On the free plan the site sleeps after 15 minutes without
+visitors and takes up to a minute to wake up. All data is in Supabase, so restarts lose nothing.
 
-The website runs on **Render** (free web service). The data — places, admin accounts, logins and
-uploaded photos — is stored in a free **Turso** online database, because Render's free plan erases
-its disk on every restart.
-
-1. Upload the project to GitHub (VS Code: **Source Control → Publish Branch**).
-2. **Turso:** sign up at [turso.tech](https://turso.tech) with GitHub → create a database →
-   copy its **URL** (`libsql://….turso.io`) and create a **token**.
-3. **Render:** sign up at [render.com](https://render.com) with GitHub → **New → Blueprint** →
-   choose the repository. Render reads `render.yaml` and asks for:
-   - `TURSO_DATABASE_URL` — the Turso URL
-   - `TURSO_AUTH_TOKEN` — the Turso token
-   - `ADMIN_PASSWORD` — the admin password for the online site
-4. Click **Deploy**. The site appears at `https://travel-horizon-xxxx.onrender.com`.
-
-Every push to GitHub updates the website automatically. On the free plan the site sleeps after
-15 minutes without visitors and takes up to a minute to wake up.
-
-Without the Turso variables the server uses the local file `data/travel.db` (or `DATA_DIR`).
-
-Opening the HTML files directly (without `npm start`) still works, but then the Destinations page
-shows the places built into `destinations.html` and the admin panel is unavailable.
+Opening the HTML files directly (without `npm start`) still shows the site, but with the places built
+into `destinations.html`, and bookings and the admin panel don't work.

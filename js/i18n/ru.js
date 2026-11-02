@@ -470,3 +470,13 @@ Object.assign(window.I18N.ru, {
 });
 
 Object.assign(window.I18N.ru, { "footer.admin": "🔒 Вход для администратора" });
+
+Object.assign(window.I18N.ru, {
+  "form.phone": "Телефон, WhatsApp или Telegram",
+  "form.phoneErr": "Введите корректный номер телефона или имя в Telegram.",
+  "form.destination": "Куда вы хотите поехать?",
+  "form.destinationPh": "Сон-Куль, Иссык-Куль…",
+  "js.sending": "Отправка…",
+  "js.bookingError": "К сожалению, заявку не удалось отправить. Попробуйте ещё раз через несколько минут.",
+  "js.success": "Рахмат, {name}! Ваша заявка получена. Наша команда свяжется с вами в течение 24 часов и предложит персональный маршрут."
+});

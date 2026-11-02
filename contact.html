@@ -62,6 +62,21 @@
           </div>
           <div class="form-row">
             <div class="field">
+              <label for="phone" data-i18n="form.phone">Phone, WhatsApp or Telegram</label>
+              <input type="text" id="phone" name="phone" autocomplete="tel" placeholder="+996 700 123 456">
+              <span class="error" data-i18n="form.phoneErr">Please enter a valid phone number or Telegram username.</span>
+            </div>
+            <div class="field">
+              <label for="destination" data-i18n="form.destination">Where do you want to go?</label>
+              <input type="text" id="destination" name="destination" maxlength="120" placeholder="Song-Kul, Issyk-Kul…" data-i18n-placeholder="form.destinationPh">
+            </div>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <div class="field">
               <label for="country" data-i18n="form.country">Your country *</label>
               <select id="country" name="country">
                 <option value="" data-i18n="form.select">Select…</option>

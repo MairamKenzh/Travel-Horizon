@@ -470,3 +470,13 @@ Object.assign(window.I18N.fr, {
 });
 
 Object.assign(window.I18N.fr, { "footer.admin": "🔒 Espace administrateur" });
+
+Object.assign(window.I18N.fr, {
+  "form.phone": "Téléphone, WhatsApp ou Telegram",
+  "form.phoneErr": "Veuillez saisir un numéro de téléphone ou un identifiant Telegram valide.",
+  "form.destination": "Où souhaitez-vous aller ?",
+  "form.destinationPh": "Song-Koul, Issyk-Koul…",
+  "js.sending": "Envoi en cours…",
+  "js.bookingError": "Désolé, votre demande n'a pas pu être envoyée. Veuillez réessayer dans quelques minutes.",
+  "js.success": "Rakhmat, {name} ! Votre demande a bien été reçue. Notre équipe vous contactera sous 24 heures avec un itinéraire personnalisé."
+});

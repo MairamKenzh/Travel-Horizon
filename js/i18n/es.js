@@ -470,3 +470,13 @@ Object.assign(window.I18N.es, {
 });
 
 Object.assign(window.I18N.es, { "footer.admin": "🔒 Acceso de administración" });
+
+Object.assign(window.I18N.es, {
+  "form.phone": "Teléfono, WhatsApp o Telegram",
+  "form.phoneErr": "Introduce un teléfono o un usuario de Telegram válido.",
+  "form.destination": "¿Adónde quieres ir?",
+  "form.destinationPh": "Song-Kul, Issyk-Kul…",
+  "js.sending": "Enviando…",
+  "js.bookingError": "Lo sentimos, no se pudo enviar tu solicitud. Inténtalo de nuevo en unos minutos.",
+  "js.success": "¡Rakhmat, {name}! Hemos recibido tu solicitud. Nuestro equipo te contactará en menos de 24 horas con un itinerario personalizado."
+});

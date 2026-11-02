@@ -470,3 +470,13 @@ Object.assign(window.I18N.ky, {
 });
 
 Object.assign(window.I18N.ky, { "footer.admin": "🔒 Администратордун кирүүсү" });
+
+Object.assign(window.I18N.ky, {
+  "form.phone": "Телефон, WhatsApp же Telegram",
+  "form.phoneErr": "Туура телефон номерин же Telegram атын жазыңыз.",
+  "form.destination": "Кайда баргыңыз келет?",
+  "form.destinationPh": "Соң-Көл, Ысык-Көл…",
+  "js.sending": "Жөнөтүлүүдө…",
+  "js.bookingError": "Кечиресиз, өтүнмө жөнөтүлгөн жок. Бир нече мүнөттөн кийин кайра аракет кылыңыз.",
+  "js.success": "Рахмат, {name}! Өтүнмөңүз кабыл алынды. Командабыз 24 сааттын ичинде сиз менен байланышып, жеке маршрут сунуштайт."
+});

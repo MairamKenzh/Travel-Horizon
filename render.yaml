@@ -9,9 +9,13 @@ services:
     startCommand: npm start
     healthCheckPath: /api/places
     envVars:
-      - key: TURSO_DATABASE_URL
+      - key: SUPABASE_URL
         sync: false
-      - key: TURSO_AUTH_TOKEN
+      - key: SUPABASE_ANON_KEY
         sync: false
-      - key: ADMIN_PASSWORD
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
         sync: false

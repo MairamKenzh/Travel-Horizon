@@ -1,18 +1,21 @@
 /* ==========================================================================
    Travel Horizon — admin panel
-   Talks to the REST API in server.js. Requires the site to run with `npm start`.
+   Logs in with Supabase Auth and changes data directly in Supabase. What each
+   account may do is enforced by the database rules in supabase/schema.sql.
    ========================================================================== */
 
 const LANGS = { en: "English", ru: "Русский", es: "Español", it: "Italiano", ky: "Кыргызча", fr: "Français" };
 const CATEGORIES = { lakes: "🌊 Lakes", mountains: "🏔️ Mountains", history: "🏛️ History", cities: "🏙️ Cities" };
 const DEFAULT_LOCATION = [41.4, 75.0]; // centre of Kyrgyzstan
+const PHOTO_BUCKET = "place-photos";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-let me = null;          // logged-in user
-let places = [];        // all places from the API
+let sb = null;          // Supabase client
+let places = [];        // all places
+let bookings = [];      // all booking requests
 let editingId = null;   // id of the place being edited, null when adding
 let idTouched = false;  // stop auto-filling the ID once the user edits it
 let dirty = false;      // unsaved changes in the editor
@@ -20,18 +23,8 @@ let pickMap = null;
 let pickMarker = null;
 
 /* ---------- Helpers ---------- */
-async function api(method, url, body) {
-  const res = await fetch(url, {
-    method,
-    headers: body ? { "Content-Type": "application/json" } : {},
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  const data = await res.json().catch(() => ({}));
-  if (res.status === 401 && url !== "api/login") {
-    showLogin();
-    throw new Error(data.error || "Please log in again.");
-  }
-  if (!res.ok) throw new Error(data.error || `Request failed (${res.status}).`);
+function must({ data, error }) {
+  if (error) throw new Error(error.message);
   return data;
 }
 
@@ -71,7 +64,7 @@ const slugify = (s) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")
 
 /* ---------- Views ---------- */
 function showView(name) {
-  ["places", "editor", "users"].forEach((v) => ($(`#${v}-view`).hidden = v !== name));
+  ["places", "editor", "bookings", "account"].forEach((v) => ($(`#${v}-view`).hidden = v !== name));
   $$(".admin-tabs button").forEach((b) => b.classList.toggle("active", b.dataset.tab === (name === "editor" ? "places" : name)));
   window.scrollTo({ top: 0 });
 }
@@ -79,30 +72,45 @@ function showView(name) {
 function showLogin() {
   $("#app-view").hidden = true;
   $("#login-view").hidden = false;
-  $("#login-username").focus();
+  $("#login-email").focus();
 }
 
-async function showApp() {
+async function showApp(user) {
   $("#login-view").hidden = true;
   $("#app-view").hidden = false;
-  $("#who").textContent = me.username;
+  $("#who").textContent = user.email;
   showView("places");
-  await loadPlaceList();
+  await Promise.all([loadPlaceList(), loadBookings()]);
 }
 
 /* ---------- Login / logout ---------- */
+// Logged in is not enough: only accounts in the admins table get in
+async function enterIfAdmin(user) {
+  if (must(await sb.rpc("is_admin"))) {
+    await showApp(user);
+    return true;
+  }
+  await sb.auth.signOut();
+  showLogin();
+  $("#login-error").textContent = "This account is not an admin. Add it to the admins table in Supabase.";
+  return false;
+}
+
 $("#login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const error = $("#login-error");
   error.textContent = "";
+  if (!sb) {
+    error.textContent = "The server has no Supabase settings yet.";
+    return;
+  }
   try {
-    await api("POST", "api/login", {
-      username: $("#login-username").value.trim(),
+    const { user } = must(await sb.auth.signInWithPassword({
+      email: $("#login-email").value.trim(),
       password: $("#login-password").value,
-    });
-    me = await api("GET", "api/me");
+    }));
     $("#login-password").value = "";
-    await showApp();
+    await enterIfAdmin(user);
   } catch (err) {
     error.textContent = err.message;
   }
@@ -111,15 +119,14 @@ $("#login-form").addEventListener("submit", async (e) => {
 $("#logout").addEventListener("click", async () => {
   if (dirty && !(await confirmDialog("You have unsaved changes. Log out anyway?", "Log out"))) return;
   dirty = false;
-  await api("POST", "api/logout").catch(() => {});
-  me = null;
+  await sb.auth.signOut();
   showLogin();
 });
 
 /* ---------- Places list ---------- */
 async function loadPlaceList() {
   try {
-    places = await api("GET", "api/places");
+    places = must(await sb.from("places").select("*").order("sort").order("id"));
     renderPlaceList();
   } catch (err) {
     toast(err.message, true);
@@ -138,7 +145,7 @@ function renderPlaceList() {
         <img src="${esc(p.image)}" alt="" loading="lazy">
         <div class="place-row__info">
           <strong>${esc(p.emoji)} ${esc(en.title)}</strong>
-          <span class="muted">${esc(p.id)} · ${p.category.map((c) => CATEGORIES[c] || c).join(", ")}</span>
+          <span class="muted">${esc(p.id)} · ${p.category.map((c) => esc(CATEGORIES[c] || c)).join(", ")}</span>
         </div>
         <span class="lang-count ${filled < 6 ? "warn" : ""}" title="Languages with a title">🌐 ${filled}/6</span>
         <div class="place-row__actions">
@@ -160,7 +167,7 @@ $("#place-list").addEventListener("click", async (e) => {
     const title = place.texts.en?.title || place.id;
     if (!(await confirmDialog(`Delete "${title}"? It will disappear from the website in all languages.`))) return;
     try {
-      await api("DELETE", `api/places/${encodeURIComponent(place.id)}`);
+      must(await sb.from("places").delete().eq("id", place.id));
       places = places.filter((p) => p.id !== place.id);
       renderPlaceList();
       toast(`"${title}" was deleted.`);
@@ -287,12 +294,17 @@ function setPhoto(path, photoKey) {
   preview.innerHTML = path ? `<img src="${esc(path)}" alt="">` : "<span>No photo yet</span>";
 }
 
+const photoUrl = (name) => sb.storage.from(PHOTO_BUCKET).getPublicUrl(name).data.publicUrl;
+
 async function loadPhotoOptions(selected) {
   const select = $("#photo-select");
   try {
-    const images = await api("GET", "api/images");
-    select.innerHTML = `<option value="">Choose…</option>` +
-      images.map((p) => `<option value="${esc(p)}" ${p === selected ? "selected" : ""}>${esc(p.replace(/^images\//, ""))}</option>`).join("");
+    const uploaded = must(await sb.storage.from(PHOTO_BUCKET).list("", { limit: 200, sortBy: { column: "created_at", order: "desc" } }))
+      .filter((f) => f.id) // skip folder placeholders
+      .map((f) => [photoUrl(f.name), f.name]);
+    const builtIn = (await (await fetch("api/images")).json()).map((p) => [p, p.replace(/^images\//, "")]);
+    select.innerHTML = `<option value="">Choose…</option>` + [...uploaded, ...builtIn]
+      .map(([value, label]) => `<option value="${esc(value)}" ${value === selected ? "selected" : ""}>${esc(label)}</option>`).join("");
   } catch (err) {
     toast(err.message, true);
   }
@@ -320,7 +332,7 @@ function resizeImage(file, maxWidth = 1600) {
       canvas.height = Math.round(img.height * scale);
       canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
       URL.revokeObjectURL(img.src);
-      resolve(canvas.toDataURL("image/jpeg", 0.85));
+      canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("This image could not be processed."))), "image/jpeg", 0.85);
     };
     img.onerror = () => reject(new Error("This file could not be read as an image."));
     img.src = URL.createObjectURL(file);
@@ -333,10 +345,12 @@ $("#photo-upload").addEventListener("change", async (e) => {
   const status = $("#upload-status");
   status.textContent = "Uploading…";
   try {
-    const data = await resizeImage(file);
-    const { path } = await api("POST", "api/upload", { name: file.name, data });
-    setPhoto(path, "");
-    await loadPhotoOptions(path);
+    const blob = await resizeImage(file);
+    const name = `${slugify(file.name.replace(/\.\w+$/, "")) || "photo"}-${crypto.randomUUID().slice(0, 8)}.jpg`;
+    must(await sb.storage.from(PHOTO_BUCKET).upload(name, blob, { contentType: "image/jpeg", cacheControl: "31536000" }));
+    const url = photoUrl(name);
+    setPhoto(url, "");
+    await loadPhotoOptions(url);
     status.textContent = "✅ Photo uploaded. Remember to add a photo credit.";
     dirty = true;
   } catch (err) {
@@ -389,12 +403,13 @@ function collectForm() {
   const form = $("#place-form");
   const texts = {};
   for (const code of Object.keys(LANGS)) {
-    texts[code] = {
+    const tx = {
       title: $(`#${code}-title`).value.trim(),
       badge: $(`#${code}-badge`).value.trim(),
       description: $(`#${code}-description`).value.trim(),
-      tags: $(`#${code}-tags`).value.split("\n").map((t) => t.trim()).filter(Boolean),
+      tags: $(`#${code}-tags`).value.split("\n").map((t) => t.trim()).filter(Boolean).slice(0, 6),
     };
+    if (tx.title || tx.badge || tx.description || tx.tags.length) texts[code] = tx;
   }
   return {
     id: $("#place-id").value.trim(),
@@ -407,13 +422,14 @@ function collectForm() {
     emoji: $("#emoji").value.trim(),
     sort: Number($("#sort").value) || 0,
     texts,
+    updated_at: new Date().toISOString(),
   };
 }
 
 function checkForm(data) {
   const errors = [];
-  if (!data.texts.en.title) errors.push("Write an English title.");
-  if (!data.texts.en.description) errors.push("Write an English description.");
+  if (!data.texts.en?.title) errors.push("Write an English title.");
+  if (!data.texts.en?.description) errors.push("Write an English description.");
   if (!/^[a-z0-9-]{2,40}$/.test(data.id)) errors.push("The ID may only contain lowercase letters, numbers and dashes (2–40 characters).");
   if (!data.category.length) errors.push("Choose at least one category.");
   if (!data.image) errors.push("Upload or choose a photo.");
@@ -429,15 +445,18 @@ async function savePlace(e) {
   if (errors.length) {
     box.innerHTML = `<strong>Please fix the following:</strong><ul>${errors.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>`;
     box.hidden = false;
-    if (!data.texts.en.title || !data.texts.en.description) switchLang("en");
+    if (!data.texts.en?.title || !data.texts.en?.description) switchLang("en");
     window.scrollTo({ top: 0, behavior: "smooth" });
     return;
   }
   box.hidden = true;
   try {
-    const saved = editingId
-      ? await api("PUT", `api/places/${encodeURIComponent(editingId)}`, data)
-      : await api("POST", "api/places", data);
+    const query = editingId
+      ? sb.from("places").update(data).eq("id", editingId)
+      : sb.from("places").insert(data);
+    const result = await query.select().single();
+    if (result.error?.code === "23505") throw new Error(`A place with ID "${data.id}" already exists.`);
+    const saved = must(result);
     const i = places.findIndex((p) => p.id === saved.id);
     if (i >= 0) places[i] = saved; else places.push(saved);
     places.sort((a, b) => a.sort - b.sort || a.id.localeCompare(b.id));
@@ -452,55 +471,89 @@ async function savePlace(e) {
   }
 }
 
-/* ---------- Users ---------- */
-async function loadUsers() {
+/* ---------- Booking requests ---------- */
+async function loadBookings() {
   try {
-    const users = await api("GET", "api/users");
-    $("#user-list").innerHTML = users.map((u) => `
-      <div class="user-row" data-id="${u.id}">
-        <span class="user-row__avatar">${esc(u.username[0])}</span>
-        <div><strong>${esc(u.username)}${u.username === me.username ? " (you)" : ""}</strong>
-          <span>Added ${esc(new Date(u.createdAt + "Z").toLocaleDateString())}</span></div>
-        ${u.username === me.username ? "" : `<button class="btn btn--danger btn--sm" data-action="delete-user">Remove</button>`}
-      </div>`).join("");
+    bookings = must(await sb.from("bookings").select("*").order("created_at", { ascending: false }));
+    renderBookings();
   } catch (err) {
     toast(err.message, true);
   }
 }
 
-$("#user-list").addEventListener("click", async (e) => {
-  if (e.target.dataset.action !== "delete-user") return;
-  const row = e.target.closest(".user-row");
-  const name = row.querySelector("strong").textContent;
-  if (!(await confirmDialog(`Remove ${name}? They will no longer be able to log in.`, "Remove"))) return;
+function renderBookings() {
+  const newCount = bookings.filter((b) => b.status === "new").length;
+  $("#bookings-badge").textContent = newCount || "";
+  $("#bookings-badge").hidden = !newCount;
+  $("#bookings-count").textContent = `${bookings.length} ${bookings.length === 1 ? "request" : "requests"}, ${newCount} new`;
+  const detail = (label, value) => (value ? `<div><span class="muted">${label}</span> ${esc(value)}</div>` : "");
+  $("#booking-list").innerHTML = bookings.length ? bookings.map((b) => `
+    <article class="booking ${b.status === "new" ? "booking--new" : ""}" data-id="${b.id}">
+      <div class="booking__head">
+        <div>
+          <strong>${esc(b.name)}</strong>
+          <span class="muted">${esc(new Date(b.created_at).toLocaleString())}${b.telegram_sent ? "" : " · ⚠️ not sent to Telegram"}</span>
+        </div>
+        <div class="booking__actions">
+          <select data-action="status" aria-label="Status">
+            ${[["new", "🆕 New"], ["contacted", "💬 Contacted"], ["closed", "✅ Closed"]]
+              .map(([value, label]) => `<option value="${value}" ${b.status === value ? "selected" : ""}>${label}</option>`).join("")}
+          </select>
+          <button class="btn btn--danger btn--sm" data-action="delete">Delete</button>
+        </div>
+      </div>
+      <div class="booking__contacts">
+        <a href="mailto:${esc(b.email)}">✉️ ${esc(b.email)}</a>
+        ${b.phone ? `<span>📞 ${esc(b.phone)}</span>` : ""}
+      </div>
+      <div class="booking__details">
+        ${detail("Country:", b.country)}
+        ${detail("Destination:", b.destination)}
+        ${detail("Arrival:", b.arrival)}
+        ${detail("Days:", b.days)}
+        ${detail("Travellers:", b.travelers)}
+        ${detail("Budget:", b.budget)}
+        ${detail("Interests:", b.interests.join(", "))}
+      </div>
+      ${b.message ? `<p class="booking__message">${esc(b.message)}</p>` : ""}
+    </article>`).join("") : `<p class="empty-state">No booking requests yet.</p>`;
+}
+
+$("#booking-list").addEventListener("change", async (e) => {
+  if (e.target.dataset.action !== "status") return;
+  const booking = bookings.find((b) => b.id === Number(e.target.closest(".booking").dataset.id));
   try {
-    await api("DELETE", `api/users/${row.dataset.id}`);
-    toast(`${name} was removed.`);
-    loadUsers();
+    must(await sb.from("bookings").update({ status: e.target.value }).eq("id", booking.id));
+    booking.status = e.target.value;
+  } catch (err) {
+    toast(err.message, true);
+  }
+  renderBookings();
+});
+
+$("#booking-list").addEventListener("click", async (e) => {
+  if (e.target.dataset.action !== "delete") return;
+  const id = Number(e.target.closest(".booking").dataset.id);
+  const booking = bookings.find((b) => b.id === id);
+  if (!(await confirmDialog(`Delete the request from ${booking.name}?`))) return;
+  try {
+    must(await sb.from("bookings").delete().eq("id", id));
+    bookings = bookings.filter((b) => b.id !== id);
+    renderBookings();
+    toast("The request was deleted.");
   } catch (err) {
     toast(err.message, true);
   }
 });
 
-$("#add-user-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  try {
-    await api("POST", "api/users", { username: form.username.value.trim(), password: form.password.value });
-    toast(`${form.username.value.trim()} can now log in.`);
-    form.reset();
-    loadUsers();
-  } catch (err) {
-    toast(err.message, true);
-  }
-});
-
+/* ---------- Account ---------- */
 $("#password-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = e.target;
+  if (form.next.value.length < 8) return toast("The new password must be at least 8 characters.", true);
   if (form.next.value !== form.confirm.value) return toast("The new passwords don't match.", true);
   try {
-    await api("PUT", "api/users/me/password", { current: form.current.value, next: form.next.value });
+    must(await sb.auth.updateUser({ password: form.next.value }));
     toast("Your password was changed.");
     form.reset();
   } catch (err) {
@@ -514,8 +567,9 @@ $(".admin-tabs").addEventListener("click", async (e) => {
   if (!tab) return;
   if (!$("#editor-view").hidden && dirty && !(await confirmDialog("Discard your unsaved changes?", "Discard"))) return;
   dirty = false;
-  if (tab.dataset.tab === "users") { showView("users"); loadUsers(); }
-  else { showView("places"); renderPlaceList(); }
+  showView(tab.dataset.tab);
+  if (tab.dataset.tab === "places") renderPlaceList();
+  if (tab.dataset.tab === "bookings") loadBookings();
 });
 
 /* ---------- Start ---------- */
@@ -527,9 +581,15 @@ buildEditor();
     return;
   }
   try {
-    me = await api("GET", "api/me");
-    await showApp();
-  } catch (e) {
+    const res = await fetch("api/config");
+    if (!res.ok) throw new Error("The server has no Supabase settings yet (see README).");
+    const config = await res.json();
+    sb = window.supabase.createClient(config.url, config.anonKey);
+    const { session } = must(await sb.auth.getSession());
+    if (session) await enterIfAdmin(session.user);
+    else showLogin();
+  } catch (err) {
     showLogin();
+    $("#login-error").textContent = err.message;
   }
 })();

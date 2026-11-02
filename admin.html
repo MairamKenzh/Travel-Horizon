@@ -29,8 +29,8 @@
         <a href="http://localhost:3000/admin.html">http://localhost:3000/admin.html</a>.
       </div>
       <div class="field">
-        <label for="login-username">Username</label>
-        <input id="login-username" name="username" autocomplete="username" required>
+        <label for="login-email">Email</label>
+        <input id="login-email" name="email" type="email" autocomplete="username" required>
       </div>
       <div class="field">
         <label for="login-password">Password</label>
@@ -52,7 +52,8 @@
         </a>
         <nav class="admin-tabs">
           <button class="active" data-tab="places">📍 Places</button>
-          <button data-tab="users">👤 Users</button>
+          <button data-tab="bookings">🧳 Bookings <span class="tab-badge" id="bookings-badge" hidden></span></button>
+          <button data-tab="account">👤 Account</button>
         </nav>
         <div class="admin-bar__right">
           <span class="who" id="who"></span>
@@ -168,50 +169,37 @@
         </form>
       </section>
 
-      <!-- Users -->
-      <section id="users-view" hidden>
+      <!-- Booking requests -->
+      <section id="bookings-view" hidden>
         <div class="admin-head">
           <div>
-            <h1>Users</h1>
-            <p class="muted">Everyone listed here can log in and change places on the website.</p>
+            <h1>Booking requests</h1>
+            <p class="muted" id="bookings-count"></p>
           </div>
         </div>
-        <div class="users-grid">
-          <div class="panel">
-            <h2>Admin accounts</h2>
-            <div id="user-list"></div>
-          </div>
+        <div class="booking-list" id="booking-list"></div>
+      </section>
+
+      <!-- Account -->
+      <section id="account-view" hidden>
+        <div class="admin-head">
           <div>
-            <form class="panel" id="add-user-form" novalidate>
-              <h2>Add a person</h2>
-              <div class="field">
-                <label for="new-username">Username</label>
-                <input id="new-username" name="username" autocomplete="off">
-              </div>
-              <div class="field">
-                <label for="new-password">Password <span class="muted">(min. 8 characters)</span></label>
-                <input id="new-password" name="password" type="password" autocomplete="new-password">
-              </div>
-              <button class="btn btn--primary" type="submit">Add user</button>
-            </form>
-            <form class="panel" id="password-form" novalidate>
-              <h2>Change my password</h2>
-              <div class="field">
-                <label for="current-password">Current password</label>
-                <input id="current-password" name="current" type="password" autocomplete="current-password">
-              </div>
-              <div class="field">
-                <label for="next-password">New password</label>
-                <input id="next-password" name="next" type="password" autocomplete="new-password">
-              </div>
-              <div class="field">
-                <label for="confirm-password">Repeat new password</label>
-                <input id="confirm-password" name="confirm" type="password" autocomplete="new-password">
-              </div>
-              <button class="btn btn--dark" type="submit">Change password</button>
-            </form>
+            <h1>Account</h1>
+            <p class="muted">Admins are managed in Supabase: Authentication → Users, and the admins table.</p>
           </div>
         </div>
+        <form class="panel account-panel" id="password-form" novalidate>
+          <h2>Change my password</h2>
+          <div class="field">
+            <label for="next-password">New password <span class="muted">(min. 8 characters)</span></label>
+            <input id="next-password" name="next" type="password" autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label for="confirm-password">Repeat new password</label>
+            <input id="confirm-password" name="confirm" type="password" autocomplete="new-password">
+          </div>
+          <button class="btn btn--dark" type="submit">Change password</button>
+        </form>
       </section>
     </main>
   </div>
@@ -227,6 +215,7 @@
   <div class="toast" id="toast" role="status"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="vendor/supabase.js"></script>
   <script src="js/credits.js"></script>
   <script src="js/admin.js"></script>
 </body>

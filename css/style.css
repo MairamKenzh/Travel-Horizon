@@ -614,3 +614,7 @@ tr:last-child td { border-bottom: 0; }
   .hero__slide { transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* Booking form: spam trap hidden from people, error state */
+.hp-field { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.success--error { background: #fdecec; color: #8f1a20; border-color: #f3c4c6; }

@@ -144,3 +144,18 @@ body.admin { background: #eef2f7; min-height: 100vh; }
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 .toast.error { background: var(--red); }
+
+/* ---------- Bookings & account ---------- */
+.tab-badge { display: inline-block; min-width: 20px; padding: 0 6px; border-radius: 999px; background: var(--red); color: #fff; font-size: .75rem; line-height: 20px; text-align: center; }
+.booking-list { display: grid; gap: 12px; }
+.booking { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+.booking--new { border-left: 4px solid var(--sun); }
+.booking__head { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: flex-start; }
+.booking__head strong { display: block; font-size: 1.05rem; }
+.booking__head span { font-size: .85rem; }
+.booking__actions { display: flex; gap: 8px; align-items: center; }
+.booking__actions select { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); font: inherit; font-size: .9rem; background: #fff; }
+.booking__contacts { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 10px 0; font-weight: 600; font-size: .95rem; }
+.booking__details { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px 18px; font-size: .92rem; }
+.booking__message { margin: 12px 0 0; padding: 12px 14px; background: var(--bg); border-radius: 10px; white-space: pre-wrap; font-size: .95rem; }
+.account-panel { max-width: 480px; }

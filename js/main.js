@@ -34,7 +34,9 @@ const LANGUAGES = {
 // English versions of strings created by scripts (not present in the HTML)
 const SCRIPT_STRINGS = {
   "js.som": "KGS (som)",
-  "js.success": "Rakhmat, {name}! Your trip request has been received. Our team will email you within 24 hours with a personalised itinerary.",
+  "js.success": "Rakhmat, {name}! Your trip request has been received. Our team will contact you within 24 hours with a personalised itinerary.",
+  "js.sending": "Sending…",
+  "js.bookingError": "Sorry, your request could not be sent. Please try again in a few minutes.",
   "js.count": "Showing {n} of {total} places",
   "js.maps": "Open in Google Maps",
   "js.plan": "Plan a trip here",
@@ -423,7 +425,9 @@ async function initDestinations() {
     const maps = modal.querySelector(".modal__maps");
     maps.href = `https://www.google.com/maps/search/?api=1&query=${card.dataset.lat},${card.dataset.lng}`;
     maps.textContent = `📍 ${t("js.maps")}`;
-    modal.querySelector(".modal__plan").textContent = t("js.plan");
+    const plan = modal.querySelector(".modal__plan");
+    plan.textContent = t("js.plan");
+    plan.href = `contact.html?place=${encodeURIComponent(card.dataset.id)}`;
     modal.querySelector(".modal__prev").textContent = t("js.prev");
     modal.querySelector(".modal__next").textContent = t("js.next");
     modal.querySelector(".modal__close").setAttribute("aria-label", t("js.close"));
@@ -564,6 +568,7 @@ function initTripForm() {
     email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
     country: (v) => v !== "",
     arrival: (v) => v !== "" && v >= today,
+    phone: (v) => !v.trim() || /^[+\d@\w][\d\w\s()@._-]{4,39}$/.test(v.trim()),
     days: (v) => Number(v) >= 1 && Number(v) <= 60,
     travelers: (v) => Number(v) >= 1 && Number(v) <= 30,
   };
@@ -579,19 +584,66 @@ function initTripForm() {
     form.elements[name].addEventListener("blur", () => check(name));
   });
 
-  form.addEventListener("submit", (e) => {
+  // Coming from a place's "Plan a trip here" button: fill in the destination
+  const placeId = new URLSearchParams(location.search).get("place");
+  if (placeId) {
+    loadPlaces().then((places) => {
+      const place = places?.find((p) => p.id === placeId);
+      if (place) form.elements.destination.value = placeText(place).title;
+    });
+  }
+
+  const selectedText = (select) => select.options[select.selectedIndex]?.text.trim() || "";
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const allOk = Object.keys(rules).map(check).every(Boolean);
-    const success = document.querySelector(".success");
+    const status = document.querySelector(".success");
+    const showStatus = (text, isError) => {
+      status.textContent = text;
+      status.classList.toggle("success--error", isError);
+      status.style.display = "block";
+    };
     if (!allOk) {
-      success.style.display = "none";
+      status.style.display = "none";
       form.querySelector(".invalid input, .invalid select")?.focus();
       return;
     }
-    const name = form.elements.name.value.trim().split(" ")[0];
-    success.textContent = t("js.success", { name });
-    success.style.display = "block";
-    form.reset();
+
+    const el = form.elements;
+    const button = form.querySelector('[type="submit"]');
+    const label = button.innerHTML;
+    button.disabled = true;
+    button.textContent = t("js.sending");
+    try {
+      const res = await fetch("api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: el.name.value,
+          email: el.email.value,
+          phone: el.phone.value,
+          country: selectedText(el.country),
+          destination: el.destination.value,
+          arrival: el.arrival.value,
+          days: Number(el.days.value),
+          travelers: Number(el.travelers.value),
+          interests: [...form.querySelectorAll('[name="interests"]:checked')].map((c) => c.closest("label").textContent.trim()),
+          budget: selectedText(el.budget),
+          message: el.message.value,
+          language: currentLang,
+          website: el.website.value,
+        }),
+      });
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      showStatus(t("js.success", { name: el.name.value.trim().split(" ")[0] }), false);
+      form.reset();
+    } catch (err) {
+      showStatus(t("js.bookingError"), true);
+    } finally {
+      button.disabled = false;
+      button.innerHTML = label;
+    }
   });
 }
 
